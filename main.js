@@ -1,13 +1,20 @@
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════════════
+   LAYAN AL-SALEM — Portfolio JS
+   Clean, performant, competition-level
+═══════════════════════════════════════════════════════════════ */
+
+// ── Helpers ──────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
 const raf = fn => requestAnimationFrame(fn);
-// ─── End Helpers ─────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Page Navigation ──────────────────────────────────────────────────────────
+// ── Page Navigation ──────────────────────────────────────────
 function goto(p) {
   document.querySelectorAll('.page').forEach(el => el.classList.remove('on'));
-  $('page-' + p).classList.add('on');
+  const target = $('page-' + p);
+  if (!target) return;
+  target.classList.add('on');
   document.querySelectorAll('[data-p]').forEach(a => {
     a.classList.toggle('act', a.dataset.p === p);
   });
@@ -15,10 +22,10 @@ function goto(p) {
   setTimeout(kickReveal, 60);
   closeMenu();
 }
-// ─── End Page Navigation ──────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Mobile Menu ──────────────────────────────────────────────────────────────
+// ── Mobile Menu ──────────────────────────────────────────────
 let menuOpen = false;
 
 function toggleMenu() {
@@ -30,6 +37,7 @@ function toggleMenu() {
 }
 
 function closeMenu() {
+  if (!menuOpen) return;
   menuOpen = false;
   $('mobile-menu').classList.remove('open');
   $('burger').classList.remove('open');
@@ -37,71 +45,76 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
-// Close mobile menu on Escape
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && menuOpen) closeMenu();
 });
-// ─── End Mobile Menu ──────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Dark Mode ────────────────────────────────────────────────────────────────
+// ── Dark Mode ────────────────────────────────────────────────
 const savedTheme = localStorage.getItem('layan-theme') || 'light';
 applyTheme(savedTheme);
 
 function applyTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
   localStorage.setItem('layan-theme', t);
-  if (window._bgCtx) updateCanvasTheme(t);
+  if (window._updateCanvasTheme) window._updateCanvasTheme(t);
 }
 
 function toggleTheme() {
   const curr = document.documentElement.getAttribute('data-theme');
   applyTheme(curr === 'dark' ? 'light' : 'dark');
 }
-// ─── End Dark Mode ────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Scroll Handlers ──────────────────────────────────────────────────────────
-const nav   = $('nav');
-const wa    = $('wa');
-const pfill = $('prog-fill');
+// ── Scroll Handlers ──────────────────────────────────────────
+const _nav   = $('nav');
+const _wa    = $('wa');
+const _pfill = $('prog-fill');
 
 window.addEventListener('scroll', () => {
   const top = window.scrollY;
   const h   = document.documentElement.scrollHeight - window.innerHeight;
-  pfill.style.width = (h > 0 ? (top / h) * 100 : 0) + '%';
-  nav.classList.toggle('solid', top > 30);
-  wa.classList.toggle('show', top > 400);
+  if (_pfill) _pfill.style.width = (h > 0 ? (top / h) * 100 : 0) + '%';
+  if (_nav)   _nav.classList.toggle('solid', top > 30);
+  if (_wa)    _wa.classList.toggle('show', top > 400);
 }, { passive: true });
-// ─── End Scroll Handlers ──────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Reveal Animations ────────────────────────────────────────────────────────
+// ── Reveal Animations ────────────────────────────────────────
+let _revealObs = null;
+
 function kickReveal() {
-  const obs = new IntersectionObserver(entries => {
+  // Reuse observer; create once per page switch
+  if (_revealObs) _revealObs.disconnect();
+
+  _revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('vis');
-        obs.unobserve(e.target);
+        _revealObs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.07, rootMargin: '0px 0px -24px 0px' });
+  }, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
 
-  document.querySelectorAll('.page.on .rv:not(.vis), .page.on .rv-l:not(.vis), .page.on .rv-r:not(.vis)')
-    .forEach(el => obs.observe(el));
+  document.querySelectorAll('.page.on .rv:not(.vis)')
+    .forEach(el => _revealObs.observe(el));
 }
+
 kickReveal();
-// ─── End Reveal Animations ────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Counter Animation ────────────────────────────────────────────────────────
+// ── Counter Animation ────────────────────────────────────────
 function animCount(el) {
   if (el._done) return;
   el._done = true;
   const target = +el.dataset.t;
-  const suf    = el.dataset.s || '+';
-  let start    = null;
+  const suf    = el.dataset.s !== undefined ? el.dataset.s : '+';
   const dur    = 1500;
+  let start    = null;
 
   raf(function step(ts) {
     if (!start) start = ts;
@@ -112,20 +125,20 @@ function animCount(el) {
   });
 }
 
-const cObs = new IntersectionObserver(entries => {
+const _cObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       animCount(e.target);
-      cObs.unobserve(e.target);
+      _cObs.unobserve(e.target);
     }
   });
 }, { threshold: 0.4 });
 
-document.querySelectorAll('[data-t]').forEach(el => cObs.observe(el));
-// ─── End Counter Animation ────────────────────────────────────────────────────
+document.querySelectorAll('[data-t]').forEach(el => _cObs.observe(el));
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Mobile Testimonials Slider ───────────────────────────────────────────────
+// ── Mobile Testimonials Slider ────────────────────────────────
 (function () {
   const track = $('ttrack');
   if (!track) return;
@@ -137,6 +150,9 @@ document.querySelectorAll('[data-t]').forEach(el => cObs.observe(el));
   function go(n) {
     n   = ((n % total) + total) % total;
     cur = n;
+
+    // RTL: positive translateX moves slides left in RTL — we want to show slide n
+    // In RTL, translateX(+100%) moves right, so to reveal slide n we go negative
     track.style.transform = `translateX(${cur * 100}%)`;
 
     document.querySelectorAll('.testi-dot').forEach((d, i) => {
@@ -145,8 +161,11 @@ document.querySelectorAll('[data-t]').forEach(el => cObs.observe(el));
     });
 
     // Animate KPI counter in new slide
-    const kpi = $('ts-' + cur)?.querySelector('[data-t]');
-    if (kpi && !kpi._done) setTimeout(() => animCount(kpi), 350);
+    const slide = $('ts-' + cur);
+    if (slide) {
+      const kpi = slide.querySelector('[data-t]');
+      if (kpi && !kpi._done) setTimeout(() => animCount(kpi), 350);
+    }
 
     resetTicker();
     startTicker();
@@ -160,7 +179,7 @@ document.querySelectorAll('[data-t]').forEach(el => cObs.observe(el));
     if (!f) return;
     f.style.transition = 'none';
     f.style.width = '0%';
-    void f.offsetWidth;
+    void f.offsetWidth; // force reflow
   }
 
   function startTicker() {
@@ -176,11 +195,12 @@ document.querySelectorAll('[data-t]').forEach(el => cObs.observe(el));
   if (tnext) tnext.addEventListener('click', () => go(cur + 1));
   if (tprev) tprev.addEventListener('click', () => go(cur - 1));
 
-  // Touch swipe
+  // Touch swipe — RTL aware
   let tx0 = 0;
   track.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
+  track.addEventListener('touchend', e => {
     const d = tx0 - e.changedTouches[0].clientX;
+    // In RTL layout, swipe left (positive d) → go to previous
     if (Math.abs(d) > 50) go(d > 0 ? cur + 1 : cur - 1);
   }, { passive: true });
 
@@ -201,10 +221,10 @@ document.querySelectorAll('[data-t]').forEach(el => cObs.observe(el));
 
   startTicker();
 })();
-// ─── End Mobile Slider ────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Keyboard Accessibility on Cards ─────────────────────────────────────────
+// ── Keyboard Accessibility on Cards ──────────────────────────
 document.querySelectorAll('[tabindex="0"]').forEach(el => {
   el.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -213,42 +233,40 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
     }
   });
 });
-// ─── End Keyboard Accessibility ───────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Animated Background Canvas ───────────────────────────────────────────────
+// ── Animated Background Canvas ────────────────────────────────
 (function () {
-  const cv  = $('bg-canvas');
+  const cv = $('bg-canvas');
   if (!cv) return;
+
   const ctx = cv.getContext('2d');
   let W, H, nodes = [], frame = 0;
-  window._bgCtx = ctx;
 
-  const THEMES = {
-    light: { node: 'rgba(28,56,41,',   line: 'rgba(28,56,41,',   bg: 'transparent' },
-    dark:  { node: 'rgba(94,203,136,', line: 'rgba(94,203,136,', bg: 'transparent' }
+  const PALETTES = {
+    light: { node: 'rgba(27,56,40,',   line: 'rgba(27,56,40,' },
+    dark:  { node: 'rgba(94,203,136,', line: 'rgba(94,203,136,' }
   };
-  let tc = THEMES[savedTheme] || THEMES.light;
+  let tc = PALETTES[savedTheme] || PALETTES.light;
 
-  function updateCanvasTheme(t) { tc = THEMES[t] || THEMES.light; }
-  window.updateCanvasTheme = updateCanvasTheme;
+  // Expose theme updater
+  window._updateCanvasTheme = t => { tc = PALETTES[t] || PALETTES.light; };
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
 
   function resize() {
     W = cv.width  = window.innerWidth;
     H = cv.height = window.innerHeight;
-    init();
+    initNodes();
   }
 
-  function init() {
-    const count = Math.min(Math.floor(W * H / 26000), 52);
+  function initNodes() {
+    const count = Math.min(Math.floor(W * H / 28000), 48);
     nodes = Array.from({ length: count }, () => ({
-      x:     rnd(0, W),
-      y:     rnd(0, H),
-      vx:    rnd(-0.22, 0.22),
-      vy:    rnd(-0.22, 0.22),
-      r:     rnd(1.5, 2.8),
+      x: rnd(0, W), y: rnd(0, H),
+      vx: rnd(-0.2, 0.2), vy: rnd(-0.2, 0.2),
+      r: rnd(1.4, 2.6),
       pulse: rnd(0, Math.PI * 2)
     }));
   }
@@ -257,41 +275,42 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
     frame++;
     ctx.clearRect(0, 0, W, H);
 
+    // Move nodes
     nodes.forEach(n => {
-      n.x += n.vx;
-      n.y += n.vy;
-      if (n.x < 0) n.x = W;
-      if (n.x > W) n.x = 0;
-      if (n.y < 0) n.y = H;
-      if (n.y > H) n.y = 0;
-      n.pulse += 0.011;
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0) n.x = W; else if (n.x > W) n.x = 0;
+      if (n.y < 0) n.y = H; else if (n.y > H) n.y = 0;
+      n.pulse += 0.01;
     });
 
+    // Draw connections every other frame for performance
     if (frame % 2 === 0) {
-      const DIST = Math.min(W, H) * 0.18;
+      const DIST = Math.min(W, H) * 0.17;
+      const DIST2 = DIST * DIST;
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
-          const d  = Math.sqrt(dx * dx + dy * dy);
-          if (d < DIST) {
-            const alpha = (1 - d / DIST) * 0.055;
+          if (dx * dx + dy * dy < DIST2) {
+            const d = Math.sqrt(dx * dx + dy * dy);
+            const alpha = (1 - d / DIST) * 0.05;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.strokeStyle = tc.line + alpha + ')';
-            ctx.lineWidth   = 0.7;
+            ctx.lineWidth = 0.7;
             ctx.stroke();
           }
         }
       }
     }
 
+    // Draw nodes
     nodes.forEach(n => {
-      const pulsed = n.r + Math.sin(n.pulse) * 0.45;
-      const alpha  = 0.10 + Math.sin(n.pulse) * 0.04;
+      const r     = n.r + Math.sin(n.pulse) * 0.4;
+      const alpha = 0.09 + Math.sin(n.pulse) * 0.035;
       ctx.beginPath();
-      ctx.arc(n.x, n.y, pulsed, 0, Math.PI * 2);
+      ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
       ctx.fillStyle = tc.node + alpha + ')';
       ctx.fill();
     });
@@ -299,22 +318,31 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
     requestAnimationFrame(draw);
   }
 
+  let _rsz;
   window.addEventListener('resize', () => {
-    clearTimeout(window._rsz);
-    window._rsz = setTimeout(resize, 140);
+    clearTimeout(_rsz);
+    _rsz = setTimeout(resize, 150);
   });
 
   resize();
   draw();
 })();
-// ─── End Animated Canvas ──────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 
 
-// ─── Contact Form ─────────────────────────────────────────────────────────────
+// ── Contact Form ──────────────────────────────────────────────
 function submitForm(btn) {
-  btn.innerHTML = 'تم الإرسال ✓';
-  btn.disabled  = true;
-  btn.style.background = 'var(--green-2)';
-  btn.style.cursor = 'default';
+  // Basic validation
+  const name  = document.getElementById('cf-name');
+  const email = document.getElementById('cf-email');
+  if (!name?.value.trim() || !email?.value.trim()) {
+    btn.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],
+      {duration:300,easing:'ease'});
+    return;
+  }
+  btn.innerHTML   = 'تم الإرسال ✓';
+  btn.disabled    = true;
+  btn.style.background = 'var(--green2)';
+  btn.style.cursor     = 'default';
 }
-// ─── End Contact Form ─────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
