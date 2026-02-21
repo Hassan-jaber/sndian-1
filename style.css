@@ -127,6 +127,111 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
 button { font-family: var(--fb); cursor: pointer; border: none; background: none; }
+```css
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM SCROLLBAR — Layan Al-Salem Portfolio
+   Design: Obsidian Forest · Premium Dark Green Identity
+   ═══════════════════════════════════════════════════════════════
+
+   DECISIONS:
+   · Width: 6px — minimal, non-intrusive, modern
+   · Track: #0F1812 — lifted surface, warmer than pure black
+   · Thumb: #1C3829 — brand forest green anchor
+   · Hover: #2E5C42 + glow — vivid but not harsh
+   · Radius: 100px — fully pill-shaped for softness
+   · Transition: 0.36s ease on color + shadow
+   ═══════════════════════════════════════════════════════════════ */
+
+
+/* ── Firefox ──────────────────────────────────────────────────
+   scrollbar-color: thumb track
+   scrollbar-width: thin | auto | none
+   Note: Firefox does not support :hover or border-radius on
+   scrollbar parts — color pair is the only lever available.
+   ──────────────────────────────────────────────────────────── */
+* {
+  scrollbar-color: #1C3829 #0F1812;
+  scrollbar-width: thin;
+}
+
+
+/* ── WebKit (Chrome, Edge, Safari) ───────────────────────────
+   Full control: width, track, thumb, hover, glow, radius.
+   ──────────────────────────────────────────────────────────── */
+
+/* Scrollbar container width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px; /* horizontal scrollbars, if any */
+}
+
+/* Track — the groove the thumb slides along */
+::-webkit-scrollbar-track {
+  background: #0F1812;           /* warm obsidian surface           */
+  border-radius: 100px;
+  margin-block: 4px;             /* breathing room at top & bottom  */
+}
+
+/* Thumb — the draggable handle */
+::-webkit-scrollbar-thumb {
+  background: #1C3829;           /* forest green — brand anchor      */
+  border-radius: 100px;
+  border: 1.5px solid #0F1812;  /* inset illusion, looks thinner    */
+  transition:
+    background 0.36s ease,
+    box-shadow 0.36s ease;
+}
+
+/* Thumb: hover state — brightens + soft green glow */
+::-webkit-scrollbar-thumb:hover {
+  background: #2E5C42;           /* elevated green — vivid not harsh */
+  box-shadow:
+    0 0 8px rgba(88, 199, 126, 0.28),   /* primary glow halo        */
+    0 0 2px rgba(88, 199, 126, 0.14);   /* tight inner accent       */
+}
+
+/* Thumb: active/drag state — deepest engagement */
+::-webkit-scrollbar-thumb:active {
+  background: #3B6B56;           /* highest elevation green          */
+  box-shadow:
+    0 0 12px rgba(88, 199, 126, 0.36),
+    0 0 4px  rgba(201, 168, 76, 0.10);  /* faint gold kiss on press */
+}
+
+/* Corner piece (where H + V scrollbars meet) */
+::-webkit-scrollbar-corner {
+  background: #0F1812;
+}
+
+
+/* ── Light mode override ──────────────────────────────────────
+   If the user switches to light theme, the scrollbar adapts
+   gracefully without clashing against the warm off-white bg.
+   ──────────────────────────────────────────────────────────── */
+[data-theme="light"] {
+  scrollbar-color: #1C3829 #E8E5DE;
+}
+
+[data-theme="light"]::-webkit-scrollbar-track {
+  background: #E8E5DE;           /* warm off-white surface           */
+}
+
+[data-theme="light"]::-webkit-scrollbar-thumb {
+  background: #1C3829;           /* same brand green — still legible */
+  border-color: #E8E5DE;
+}
+
+[data-theme="light"]::-webkit-scrollbar-thumb:hover {
+  background: #29503F;
+  box-shadow: 0 0 6px rgba(28, 56, 41, 0.22);
+}
+
+[data-theme="light"]::-webkit-scrollbar-corner {
+  background: #E8E5DE;
+}
+
+
+
 
 /* ─── SCROLL PROGRESS ─── */
 #prog { position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 9999; pointer-events: none; }
