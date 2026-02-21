@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ليان السالم — مصممة UX/UI. تجارب رقمية تُحوّل المستخدمين إلى عملاء دائمين." />
+  <meta name="description" content="ليان السالم — مصممة UX/UI تصنع تجارب رقمية تلهم وتحرّك." />
   <title>ليان السالم — مصممة تجارب رقمية</title>
-  <script>(function(){try{var t=localStorage.getItem('layan-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Tajawal:wght@300;400;500;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -13,16 +12,24 @@
 </head>
 <body>
 
+<!-- Progress Bar -->
 <div id="prog" role="progressbar" aria-label="تقدم القراءة"><div id="prog-fill"></div></div>
+
+<!-- Canvas Background -->
 <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
+<!-- WhatsApp Float -->
 <a href="https://wa.me/966500000000" class="wa" id="wa" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
 </a>
 
-<!-- NAV -->
+
+<!-- ═══════════════ NAVIGATION ═══════════════ -->
 <nav class="nav" id="nav" role="navigation" aria-label="القائمة الرئيسية">
-  <a class="logo" href="#" onclick="goto('home');return false;" aria-label="ليان السالم">
+
+  <a class="logo" href="#" onclick="goto('home');return false;" aria-label="ليان السالم — الرئيسية">
     <svg class="logo-badge" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect x="1" y="1" width="42" height="42" rx="13" fill="#1B3828"/>
       <rect x="2.2" y="2.2" width="39.6" height="39.6" rx="12" fill="none" stroke="#C8A74A" stroke-width=".7" stroke-dasharray="2.5 2"/>
@@ -41,17 +48,33 @@
       <span class="logo-en">UX · UI · Design</span>
     </div>
   </a>
-  <ul class="nav-links" role="list">
+
+  <ul class="nav-links" id="nav-links-desktop" role="list">
     <li><a href="#" onclick="goto('home');return false;" class="act" data-p="home">الرئيسية</a></li>
     <li><a href="#" onclick="goto('projects');return false;" data-p="projects">المشاريع</a></li>
     <li><a href="#" onclick="goto('cs');return false;" data-p="cs">دراسات الحالة</a></li>
     <li><a href="#" onclick="goto('about');return false;" data-p="about">عني</a></li>
-    <li><a class="nav-cta" href="#" onclick="goto('about');setTimeout(()=>{var el=document.getElementById('contact');if(el)el.scrollIntoView({behavior:'smooth'})},80);return false;">تواصل معي</a></li>
+    <li>
+      <a class="nav-cta" href="#" onclick="goto('about');setTimeout(()=>{var el=document.getElementById('contact');if(el)el.scrollIntoView({behavior:'smooth'})},80);return false;">
+        تواصل معي
+      </a>
+    </li>
   </ul>
+
   <div class="nav-controls">
     <button class="theme-btn" id="theme-btn" aria-label="تبديل المظهر" onclick="toggleTheme()">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+        <line x1="12" y1="1"  x2="12" y2="3"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="4.22" y1="4.22"   x2="5.64"  y2="5.64"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="1"  y1="12" x2="3"  y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="4.22" y1="19.78"  x2="5.64"  y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
     </button>
     <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="القائمة" aria-expanded="false" aria-controls="mobile-menu">
       <svg class="burger-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -70,139 +93,122 @@
   <a href="#" onclick="goto('about');closeMenu();return false;"    data-p="about"    role="menuitem">عني</a>
   <a class="mob-cta" href="#" onclick="goto('about');closeMenu();setTimeout(()=>{var el=document.getElementById('contact');if(el)el.scrollIntoView({behavior:'smooth'})},80);return false;" role="menuitem">تواصل معي</a>
 </div>
+<!-- ═══════════════ END NAVIGATION ═══════════════ -->
 
-<!-- ═══════════ HOME ═══════════ -->
+
+<!-- ═══════════════════════════════════════════════════════
+     HOME PAGE
+═══════════════════════════════════════════════════════ -->
 <div class="page on" id="page-home">
 
-  <!-- ════════════════════════════════════════
-       HERO — THE DARK ATELIER
-       Direction: Bold Editorial × Minimal Luxury
-       
-       Concept: The designer's NAME becomes the
-       hero visual. A centered typographic stage
-       with atmospheric depth layers. No photo —
-       the work speaks louder than a face.
-       
-       Dark palette chosen first; light is the
-       alternate, not the default.
-  ════════════════════════════════════════ -->
-  <section class="hero" aria-label="المقدمة الرئيسية">
+  <!-- ══ HERO — ICONIC REDESIGN ══ -->
+  <section class="hero-stage" aria-label="المقدمة الرئيسية">
 
-    <!-- Depth layers — pure CSS, zero JS -->
-    <div class="h-atm h-atm-1" aria-hidden="true"></div>
-    <div class="h-atm h-atm-2" aria-hidden="true"></div>
-    <div class="h-atm h-atm-3" aria-hidden="true"></div>
-    <div class="h-grid"        aria-hidden="true"></div>
-    <div class="h-noise"       aria-hidden="true"></div>
+    <!-- Cultural geometry accent — subtle arabesque hint -->
+  <div class="geo-accent" aria-hidden="true"></div>
 
-    <!-- Vertical scroll indicator -->
-    <div class="h-scroll" aria-hidden="true">
-      <div class="h-scroll-line"></div>
-      <span>اسحب للأسفل</span>
-    </div>
+  <!-- ── LEFT: Typography Manifesto ── -->
+    <div class="hero-left">
 
-    <!-- Floating proof cards — orbit left (LTR side) -->
-    <div class="h-float h-float-a" aria-hidden="true">
-      <div class="hf-icon hf-icon-green">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16 7 22 7 22 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="hf-body">
-        <div class="hf-num" data-t="62" data-s="٪">62٪</div>
-        <div class="hf-lbl">أسرع في الحجز</div>
-      </div>
-    </div>
-
-    <div class="h-float h-float-b" aria-hidden="true">
-      <div class="hf-icon hf-icon-gold">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="hf-body">
-        <div class="hf-num hf-num-gold" data-t="30" data-s="+">30+</div>
-        <div class="hf-lbl">مشروع منجز</div>
-      </div>
-    </div>
-
-    <!-- ── MAIN STAGE ── -->
-    <div class="h-stage">
-
-      <!-- Status badge -->
-      <div class="h-status">
-        <span class="h-status-dot"></span>
-        <span>متاحة لمشاريع 2025</span>
-        <span class="h-status-sep" aria-hidden="true">·</span>
-        <span>المملكة العربية السعودية</span>
+      <!-- Eyebrow -->
+      <div class="hero-eyebrow" aria-hidden="true">
+        <span class="hero-eyebrow-line"></span>
+        <span class="hero-eyebrow-text">مصممة · UX &amp; UI · المملكة العربية السعودية</span>
       </div>
 
-      <!-- Name installation — the hero visual -->
-      <div class="h-name-block" aria-hidden="true">
-        <span class="h-name-echo">ليان</span>
-        <span class="h-name-main">ليان السالم</span>
-      </div>
-
-      <!-- Rule with glyph -->
-      <div class="h-rule" aria-hidden="true">
-        <span class="h-rule-bar"></span>
-        <span class="h-rule-dot">✦</span>
-        <span class="h-rule-bar"></span>
-      </div>
-
-      <!-- H1 — The bold manifesto -->
-      <h1 class="h-headline" id="hero-headline">
-        أُحوِّل المنتجات الرقمية
-        <span class="h-headline-em">إلى تجارب لا تُنسى</span>
+      <!-- H1: The Manifesto -->
+      <h1 class="hero-h" id="hero-headline">
+        <span class="h1-ghost">خمس سنوات من</span>
+        <span class="h1-verb">أُصمِّم</span>
+        <span class="h1-concept">لحظات</span>
+        <span class="h1-suffix">تُلهِم الناس</span>
       </h1>
 
-      <!-- Value line — sharp, surgical -->
-      <p class="h-sub">
-        من البحث العميق إلى التسليم المُحكم —<br>
-        تصميم يُثبت نفسه بالأرقام.
+      <!-- Divider -->
+      <div class="hero-divider" aria-hidden="true">
+        <span class="hero-divider-bar"></span>
+        <span class="hero-divider-text">UX · UI · Research · Strategy</span>
+      </div>
+
+      <!-- Body -->
+      <p class="hero-body">
+        من البحث إلى التسليم — أصمّم تجارب رقمية تُحرّك الناس وتُولّد نتائج قابلة للقياس.
       </p>
 
       <!-- CTAs -->
-      <div class="h-ctas">
-        <button class="h-cta-primary" onclick="goto('projects')" aria-label="استعرض الأعمال">
-          <span>استعرض الأعمال</span>
-          <span class="h-cta-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="hero-ctas">
+        <button class="cta-primary" onclick="goto('projects')" aria-label="استعرض مشاريع ليان السالم">
+          استعرض أعمالي
+          <span class="cta-arrow" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M9 6H3M6 3L3 6L6 9" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </button>
-        <button class="h-cta-ghost" onclick="goto('about');setTimeout(()=>{var el=document.getElementById('contact');if(el)el.scrollIntoView({behavior:'smooth'})},80)">
-          نبدأ مشروعاً
+        <button class="cta-secondary" onclick="goto('about');setTimeout(()=>{var el=document.getElementById('contact');if(el)el.scrollIntoView({behavior:'smooth'})},80)" aria-label="تواصل مع ليان للمشاريع">
+          <span>تحدث معي</span>
         </button>
       </div>
 
-      <!-- Proof strip — horizontal -->
-      <div class="h-proof" aria-label="إنجازات">
-        <div class="h-proof-item">
-          <span class="h-proof-num" data-t="30" data-s="+">30+</span>
-          <span class="h-proof-lbl">مشروع</span>
+      <!-- Trust Strip -->
+      <div class="hero-trust" aria-label="دليل اجتماعي">
+        <div class="trust-avatars" aria-hidden="true">
+          <div class="trust-av" style="background:linear-gradient(145deg,#28503F,#1B3828)">س</div>
+          <div class="trust-av" style="background:linear-gradient(145deg,#1E3A6E,#2C5080)">ر</div>
+          <div class="trust-av" style="background:linear-gradient(145deg,#5A2D82,#7B3FA8)">ن</div>
         </div>
-        <span class="h-proof-sep" aria-hidden="true"></span>
-        <div class="h-proof-item">
-          <span class="h-proof-num" data-t="5" data-s="">5</span>
-          <span class="h-proof-lbl">سنوات</span>
-        </div>
-        <span class="h-proof-sep" aria-hidden="true"></span>
-        <div class="h-proof-item">
-          <span class="h-proof-num" data-t="40" data-s="%">40%</span>
-          <span class="h-proof-lbl">تحسن التحويل</span>
-        </div>
-        <span class="h-proof-sep" aria-hidden="true"></span>
-        <div class="h-proof-item">
-          <span class="h-proof-num" data-t="98" data-s="%">98%</span>
-          <span class="h-proof-lbl">رضا العملاء</span>
+        <div class="trust-copy">
+          <strong>+30 مشروع ناجح</strong>
+          عملاء في التقنية والصحة والتعليم
         </div>
       </div>
 
-      <!-- Discipline tags -->
-      <div class="h-tags" aria-hidden="true">
-        <span class="h-tag">UX Research</span>
-        <span class="h-tag">UI Design</span>
-        <span class="h-tag">Product Strategy</span>
-        <span class="h-tag">Design Systems</span>
-      </div>
+    </div><!-- /hero-left -->
 
-    </div><!-- /h-stage -->
+    <!-- ── RIGHT: Visual Composition ── -->
+    <div class="hero-right" aria-hidden="true">
+
+      <!-- Outer frame with corner marks -->
+      <div class="hero-frame-outer">
+
+        <!-- Data card 1: conversion metric -->
+        <div class="hero-card hero-card-1">
+          <div class="card-icon">📈</div>
+          <div>
+            <div class="card-num" data-t="40" data-s="%">40%</div>
+            <div class="card-lbl">تحسّن التحويل</div>
+          </div>
+        </div>
+
+        <!-- Data card 2: projects -->
+        <div class="hero-card hero-card-2">
+          <div class="card-icon">✦</div>
+          <div>
+            <div class="card-num" data-t="30" data-s="+">30+</div>
+            <div class="card-lbl">مشروع منجز</div>
+          </div>
+        </div>
+
+        <!-- Photo frame -->
+        <div class="hero-frame-inner">
+          <img
+            class="hero-photo"
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=88&fit=crop&crop=faces"
+            alt="ليان السالم — مصممة UX/UI"
+            loading="eager"
+            width="340" height="453"
+            onerror="this.parentElement.style.background='linear-gradient(145deg,#28503F,#1B3828)'"
+          />
+          <div class="hero-photo-overlay"></div>
+
+          <!-- Availability badge inside photo -->
+          <div class="hero-avail">
+            <span class="avail-dot"></span>
+            متاحة للمشاريع الجديدة
+          </div>
+        </div>
+
+      </div><!-- /hero-frame-outer -->
+    </div><!-- /hero-right -->
+
   </section>
   <!-- ══ END HERO ══ -->
 
@@ -211,10 +217,22 @@
   <div class="stats-row" aria-label="إحصائيات سريعة">
     <div class="wrap">
       <div class="stats-inner">
-        <div class="stat rv"><div class="stat-num" data-t="30" data-s="+">30+</div><div class="stat-label">مشروع مكتمل</div></div>
-        <div class="stat rv d1"><div class="stat-num" data-t="5" data-s="">5</div><div class="stat-label">سنوات خبرة</div></div>
-        <div class="stat rv d2"><div class="stat-num" data-t="98" data-s="%">98%</div><div class="stat-label">رضا العملاء</div></div>
-        <div class="stat rv d3"><div class="stat-num" data-t="40" data-s="%">40%</div><div class="stat-label">متوسط تحسن التحويل</div></div>
+        <div class="stat rv">
+          <div class="stat-num" data-t="30" data-s="+">30+</div>
+          <div class="stat-label">مشروع مكتمل</div>
+        </div>
+        <div class="stat rv d1">
+          <div class="stat-num" data-t="5" data-s="">5</div>
+          <div class="stat-label">سنوات خبرة</div>
+        </div>
+        <div class="stat rv d2">
+          <div class="stat-num" data-t="98" data-s="%">98%</div>
+          <div class="stat-label">رضا العملاء</div>
+        </div>
+        <div class="stat rv d3">
+          <div class="stat-num" data-t="40" data-s="%">40%</div>
+          <div class="stat-label">متوسط تحسن التحويل</div>
+        </div>
       </div>
     </div>
   </div>
@@ -223,38 +241,44 @@
   <!-- FEATURED WORKS -->
   <div class="wrap">
     <section class="section" aria-labelledby="works-h">
-      <div class="eyebrow rv"><span class="eyebrow-line"></span>المشاريع المختارة</div>
+      <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>المشاريع المختارة</div>
       <h2 class="sec-title rv" id="works-h">أعمال تتحدث عن نفسها</h2>
       <p class="sec-sub rv d1">كل مشروع هو حل لمشكلة حقيقية — مدعوم ببحث عميق وتنفيذ مُحكم.</p>
+
       <div class="works-grid" role="list">
-        <article class="work-card rv" role="listitem" tabindex="0" aria-label="رعاية صحية ذكية" onclick="goto('cs')">
-          <div class="work-card-img"><div class="work-card-img-bg bg-health" style="height:100%"></div><div class="work-card-overlay"></div></div>
+
+        <article class="work-card rv" role="listitem" tabindex="0" aria-label="مشروع رعاية صحية ذكية" onclick="goto('cs')">
+          <div class="work-card-img"><div class="work-card-img-bg bg-health" style="height:100%"></div><div class="work-card-overlay" aria-hidden="true"></div></div>
           <div class="work-card-body">
             <div class="work-card-tags"><span class="tag">UX Research</span><span class="tag">Mobile</span></div>
             <h3 class="work-card-title">تطبيق رعاية صحية ذكية</h3>
             <p class="work-card-desc">أعدنا تصميم تجربة حجز المواعيد فخفضنا الوقت 62٪ وحققنا معدل احتفاظ 88٪.</p>
-            <div class="work-card-arrow">عرض المشروع <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="work-card-arrow" aria-hidden="true">عرض المشروع <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           </div>
         </article>
-        <article class="work-card rv d1" role="listitem" tabindex="0" aria-label="منصة تجارية" onclick="goto('cs')">
-          <div class="work-card-img"><div class="work-card-img-bg bg-shop" style="height:100%"></div><div class="work-card-overlay"></div></div>
+
+        <article class="work-card rv d1" role="listitem" tabindex="0" aria-label="مشروع منصة تجارية" onclick="goto('cs')">
+          <div class="work-card-img"><div class="work-card-img-bg bg-shop" style="height:100%"></div><div class="work-card-overlay" aria-hidden="true"></div></div>
           <div class="work-card-body">
             <div class="work-card-tags"><span class="tag">UI Design</span><span class="tag">E-Commerce</span></div>
             <h3 class="work-card-title">منصة تجارة إلكترونية</h3>
             <p class="work-card-desc">إعادة تصميم كاملة أنتجت زيادة 43٪ في معدل إتمام الشراء خلال ثلاثة أشهر.</p>
-            <div class="work-card-arrow">عرض المشروع <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="work-card-arrow" aria-hidden="true">عرض المشروع <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           </div>
         </article>
-        <article class="work-card rv d2" role="listitem" tabindex="0" aria-label="لوحة تحليلات" onclick="goto('cs')">
-          <div class="work-card-img"><div class="work-card-img-bg bg-dash" style="height:100%"></div><div class="work-card-overlay"></div></div>
+
+        <article class="work-card rv d2" role="listitem" tabindex="0" aria-label="مشروع لوحة تحليلات" onclick="goto('cs')">
+          <div class="work-card-img"><div class="work-card-img-bg bg-dash" style="height:100%"></div><div class="work-card-overlay" aria-hidden="true"></div></div>
           <div class="work-card-body">
             <div class="work-card-tags"><span class="tag">Dashboard</span><span class="tag">Data UX</span></div>
             <h3 class="work-card-title">لوحة تحليلات متقدمة</h3>
             <p class="work-card-desc">حوّلنا بيانات معقدة إلى قرارات سريعة — تقليص وقت التحليل 55٪.</p>
-            <div class="work-card-arrow">عرض المشروع <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="work-card-arrow" aria-hidden="true">عرض المشروع <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           </div>
         </article>
+
       </div>
+
       <div style="text-align:center;margin-top:var(--s8)" class="rv">
         <button class="btn btn-outline" onclick="goto('projects')">عرض جميع المشاريع</button>
       </div>
@@ -267,14 +291,35 @@
     <div class="wrap">
       <section class="section phil-inner">
         <div class="rv">
-          <div class="eyebrow" style="color:rgba(255,255,255,0.52)"><span class="eyebrow-line" style="background:rgba(255,255,255,0.3)"></span>الفلسفة</div>
-          <p class="phil-q rv d1">التصميم الجيد لا يُرى —<br><em>يُشعَر به.</em></p>
+          <div class="eyebrow" style="color:rgba(255,255,255,0.52)"><span class="eyebrow-line" style="background:rgba(255,255,255,0.3)" aria-hidden="true"></span>الفلسفة</div>
+          <p class="phil-q rv d1">
+            التصميم الجيد لا يُرى —<br>
+            <em>يُشعَر به.</em>
+          </p>
           <p class="phil-desc rv d2">أؤمن أن أفضل التجارب هي التي تبدو طبيعية تماماً — لا تصطدم بالمستخدم، بل تقوده بهدوء إلى ما يريد.</p>
         </div>
         <div class="pillars rv d2">
-          <div class="pillar"><div class="pillar-icon">🔬</div><div><div class="pillar-title">البحث أولاً</div><div class="pillar-desc">كل قرار تصميمي مبني على فهم حقيقي للمستخدم، لا على افتراضات.</div></div></div>
-          <div class="pillar"><div class="pillar-icon">⚡</div><div><div class="pillar-title">البساطة قوة</div><div class="pillar-desc">الحذف أصعب من الإضافة — وأكثر تأثيراً بكثير.</div></div></div>
-          <div class="pillar"><div class="pillar-icon">📈</div><div><div class="pillar-title">النتائج مقياسي</div><div class="pillar-desc">الجمال هدف، لكن التحويل والاحتفاظ هما مقياس النجاح الحقيقي.</div></div></div>
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">🔬</div>
+            <div>
+              <div class="pillar-title">البحث أولاً</div>
+              <div class="pillar-desc">كل قرار تصميمي مبني على فهم حقيقي للمستخدم، لا على افتراضات.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">⚡</div>
+            <div>
+              <div class="pillar-title">البساطة قوة</div>
+              <div class="pillar-desc">الحذف أصعب من الإضافة — وأكثر تأثيراً بكثير.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">📈</div>
+            <div>
+              <div class="pillar-title">النتائج مقياسي</div>
+              <div class="pillar-desc">الجمال هدف، لكن التحويل والاحتفاظ هما مقياس النجاح الحقيقي.</div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -285,177 +330,536 @@
   <div class="testi-bg">
     <div class="wrap">
       <section class="section" aria-labelledby="testi-h">
-        <div class="eyebrow rv"><span class="eyebrow-line"></span>آراء العملاء</div>
+        <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>آراء العملاء</div>
         <h2 class="sec-title rv" id="testi-h">ماذا يقول من عملت معهم</h2>
-        <div class="testi-grid" role="list">
-          <div class="testi-card-d rv" role="listitem">
-            <div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <p class="testi-quote-d">ليان لم تصمّم واجهات فقط — غيّرت الطريقة التي يفكر بها فريقنا في المنتج. النتائج تكلّم.</p>
-            <div class="testi-author"><div class="testi-avatar">س</div><div><div class="testi-name">سارة المطيري</div><div class="testi-role">CPO · شركة ناشئة للتقنية الصحية</div></div></div>
-            <div class="testi-kpi-d"><div class="kpi-num" data-t="88" data-s="%">88%</div><div class="kpi-lbl">معدل الاحتفاظ بعد إعادة التصميم</div></div>
-          </div>
-          <div class="testi-card-d rv d1" role="listitem">
-            <div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <p class="testi-quote-d">عملية واضحة، تسليم محترف، ونتائج تتجاوز التوقعات. واحدة من أفضل التجارب التي مررت بها.</p>
-            <div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#1E3A6E,#2C5080)">ر</div><div><div class="testi-name">رياض الدوسري</div><div class="testi-role">CEO · منصة تعليمية</div></div></div>
-            <div class="testi-kpi-d"><div class="kpi-num" data-t="43" data-s="%">43%</div><div class="kpi-lbl">ارتفاع في معدل إتمام الشراء</div></div>
-          </div>
-          <div class="testi-card-d rv d2" role="listitem">
-            <div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <p class="testi-quote-d">قدرتها على ترجمة بيانات المستخدمين إلى تصاميم تعمل فعلاً — هذا ما يُميّزها عن كل من عملت معهم.</p>
-            <div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#5A2D82,#7B3FA8)">ن</div><div><div class="testi-name">نورة العنزي</div><div class="testi-role">مديرة المنتج · فينتك</div></div></div>
-            <div class="testi-kpi-d"><div class="kpi-num" data-t="55" data-s="%">55%</div><div class="kpi-lbl">تقليص وقت التحليل</div></div>
-          </div>
-        </div>
-        <!-- Mobile Slider -->
-        <div class="testi-outer">
+
+        <!-- Desktop 3-grid -->
+        <div class="testi-grid" role="list" aria-label="شهادات العملاء">
+
+          <article class="testi-card-d rv" role="listitem">
+            <div class="testi-stars" aria-label="5 نجوم من 5">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testi-quote-d">ليان لا تصمم واجهات — تصمم تجارب تبقى في ذاكرة المستخدم. جودة عملها أعلى بمراحل من توقعاتنا، ونتائج منتجنا تثبت ذلك يومياً.</blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" aria-hidden="true">سم</div>
+              <div><div class="testi-name">سارة المحمد</div><div class="testi-role">CPO · شركة ميدتك السعودية</div></div>
+            </div>
+            <div class="testi-kpi-d">
+              <div class="kpi-num" data-t="62" data-s="%">62%</div>
+              <div class="kpi-lbl">تقليص وقت<br>إتمام المهام</div>
+            </div>
+          </article>
+
+          <article class="testi-card-d rv d1" role="listitem">
+            <div class="testi-stars" aria-label="5 نجوم من 5">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testi-quote-d">التفاصيل التي تنتبه لها ليان تُحدث فرقاً حقيقياً. منذ إطلاق التصميم الجديد، نشعر أن منتجنا يعمل بمنطق مختلف — أوضح وأسرع وأكثر ثقة.</blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" aria-hidden="true">رع</div>
+              <div><div class="testi-name">رامي العصيمي</div><div class="testi-role">CTO · منصة تجارية رائدة</div></div>
+            </div>
+            <div class="testi-kpi-d">
+              <div class="kpi-num" data-t="43" data-s="%">43%</div>
+              <div class="kpi-lbl">ارتفاع معدل<br>إتمام الشراء</div>
+            </div>
+          </article>
+
+          <article class="testi-card-d rv d2" role="listitem">
+            <div class="testi-stars" aria-label="5 نجوم من 5">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testi-quote-d">ليان تمتلك قدرة نادرة على ترجمة الأهداف التجارية إلى تجارب مستخدم استثنائية. معها تشعر أن فريق التصميم يفكر بعقلية المنتج والأعمال معاً.</blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" aria-hidden="true">نح</div>
+              <div><div class="testi-name">نورة الحربي</div><div class="testi-role">مديرة منتج · شركة ناشئة تعليمية</div></div>
+            </div>
+            <div class="testi-kpi-d">
+              <div class="kpi-num" data-t="88" data-s="%">88%</div>
+              <div class="kpi-lbl">معدل الاحتفاظ<br>بالمستخدم</div>
+            </div>
+          </article>
+
+        </div><!-- /testi-grid -->
+
+        <!-- Mobile slider -->
+        <div class="testi-outer" aria-label="شهادات العملاء">
           <div class="testi-track-wrap">
             <div class="testi-track" id="ttrack">
-              <div class="testi-slide" id="ts-0"><div class="testi-card-m"><div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="testi-quote-m">ليان لم تصمّم واجهات فقط — غيّرت الطريقة التي يفكر بها فريقنا في المنتج.</p><div class="testi-author"><div class="testi-avatar">س</div><div><div class="testi-name">سارة المطيري</div><div class="testi-role">CPO · تقنية صحية</div></div></div><div class="testi-kpi-m"><span class="kpi-num" data-t="88" data-s="%">88%</span><span class="kpi-lbl">معدل الاحتفاظ</span></div></div></div>
-              <div class="testi-slide" id="ts-1"><div class="testi-card-m"><div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="testi-quote-m">عملية واضحة، تسليم محترف، ونتائج تتجاوز التوقعات.</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#1E3A6E,#2C5080)">ر</div><div><div class="testi-name">رياض الدوسري</div><div class="testi-role">CEO · تعليم</div></div></div><div class="testi-kpi-m"><span class="kpi-num" data-t="43" data-s="%">43%</span><span class="kpi-lbl">ارتفاع التحويل</span></div></div></div>
-              <div class="testi-slide" id="ts-2"><div class="testi-card-m"><div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="testi-quote-m">قدرتها على ترجمة بيانات المستخدمين إلى تصاميم تعمل فعلاً — هذا ما يُميّزها.</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#5A2D82,#7B3FA8)">ن</div><div><div class="testi-name">نورة العنزي</div><div class="testi-role">مديرة المنتج · فينتك</div></div></div><div class="testi-kpi-m"><span class="kpi-num" data-t="55" data-s="%">55%</span><span class="kpi-lbl">تقليص التحليل</span></div></div></div>
+
+              <div class="testi-slide" id="ts-0">
+                <div class="testi-card">
+                  <div>
+                    <div class="testi-stars" aria-label="5 نجوم"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg></div>
+                    <blockquote class="testi-quote">ليان لا تصمم واجهات — تصمم تجارب تبقى في ذاكرة المستخدم. جودة عملها أعلى بمراحل من توقعاتنا.</blockquote>
+                    <div class="testi-author" style="margin-top:var(--s2)"><div class="testi-avatar" aria-hidden="true">سم</div><div><div class="testi-name">سارة المحمد</div><div class="testi-role">CPO · شركة ميدتك السعودية</div></div></div>
+                  </div>
+                  <div class="testi-kpi"><div class="testi-kpi-num" data-t="62" data-s="%">62%</div><div class="testi-kpi-lbl">تقليص وقت إتمام المهام</div></div>
+                </div>
+              </div>
+
+              <div class="testi-slide" id="ts-1">
+                <div class="testi-card">
+                  <div>
+                    <div class="testi-stars" aria-label="5 نجوم"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg></div>
+                    <blockquote class="testi-quote">منذ إطلاق التصميم الجديد، نشعر أن منتجنا يعمل بمنطق مختلف — أوضح وأسرع وأكثر ثقة.</blockquote>
+                    <div class="testi-author" style="margin-top:var(--s2)"><div class="testi-avatar" aria-hidden="true">رع</div><div><div class="testi-name">رامي العصيمي</div><div class="testi-role">CTO · منصة تجارية رائدة</div></div></div>
+                  </div>
+                  <div class="testi-kpi"><div class="testi-kpi-num" data-t="43" data-s="%">43%</div><div class="testi-kpi-lbl">ارتفاع معدل إتمام الشراء</div></div>
+                </div>
+              </div>
+
+              <div class="testi-slide" id="ts-2">
+                <div class="testi-card">
+                  <div>
+                    <div class="testi-stars" aria-label="5 نجوم"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="#C8A74A"/></svg></div>
+                    <blockquote class="testi-quote">ليان تمتلك قدرة نادرة على ترجمة الأهداف التجارية إلى تجارب مستخدم استثنائية.</blockquote>
+                    <div class="testi-author" style="margin-top:var(--s2)"><div class="testi-avatar" aria-hidden="true">نح</div><div><div class="testi-name">نورة الحربي</div><div class="testi-role">مديرة منتج · شركة تعليمية</div></div></div>
+                  </div>
+                  <div class="testi-kpi"><div class="testi-kpi-num" data-t="88" data-s="%">88%</div><div class="testi-kpi-lbl">معدل الاحتفاظ بالمستخدم</div></div>
+                </div>
+              </div>
+
             </div>
           </div>
+
           <div class="testi-controls">
-            <button class="testi-arrow" id="tprev" aria-label="السابق"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="testi-dots" role="tablist">
-              <button class="testi-dot on" onclick="gts(0)" aria-label="1" aria-selected="true" role="tab"></button>
-              <button class="testi-dot"    onclick="gts(1)" aria-label="2" aria-selected="false" role="tab"></button>
-              <button class="testi-dot"    onclick="gts(2)" aria-label="3" aria-selected="false" role="tab"></button>
+              <button class="testi-dot on" onclick="gts(0)" role="tab" aria-selected="true"  aria-label="الشريحة 1"></button>
+              <button class="testi-dot"    onclick="gts(1)" role="tab" aria-selected="false" aria-label="الشريحة 2"></button>
+              <button class="testi-dot"    onclick="gts(2)" role="tab" aria-selected="false" aria-label="الشريحة 3"></button>
             </div>
-            <button class="testi-arrow" id="tnext" aria-label="التالي"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="testi-ticker" aria-hidden="true"><div class="testi-ticker-fill" id="ttfill"></div></div>
+            <div class="testi-nav">
+              <button class="testi-btn" id="tnext" aria-label="التالي"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg></button>
+              <button class="testi-btn" id="tprev" aria-label="السابق"><svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg></button>
+            </div>
           </div>
-          <div class="testi-ticker"><div id="ttfill"></div></div>
         </div>
+
       </section>
     </div>
-  </div>
+  </div><!-- /testi-bg -->
 
 </div><!-- /page-home -->
 
 
-<!-- ═══════════ PROJECTS ═══════════ -->
+<!-- ═══════════════════════════════════════════════════════
+     PROJECTS PAGE
+═══════════════════════════════════════════════════════ -->
 <div class="page" id="page-projects">
   <div class="wrap">
-    <div class="proj-hero"><div class="eyebrow rv"><span class="eyebrow-line"></span>الأعمال</div><h1 class="sec-title rv" style="font-size:clamp(2rem,5vw,3.5rem)">كل المشاريع</h1><p class="sec-sub rv d1">مجموعة منتقاة من مشاريع تجمع بين البحث العميق والتنفيذ الدقيق.</p></div>
-    <div class="proj-grid">
-      <div class="proj-card featured rv" tabindex="0" onclick="goto('cs')"><div class="proj-card-img"><div class="proj-card-img-bg bg-cs-1" style="height:100%"></div></div><div class="proj-card-body"><div class="proj-role">UX Research · Mobile</div><h2 class="proj-title">رعاية صحية ذكية</h2><p class="proj-desc">إعادة تصميم كاملة لتجربة حجز المواعيد الصحية — من البحث إلى النشر.</p><div class="proj-meta"><span class="proj-tag">Healthcare</span><span class="proj-tag">Mobile App</span><span class="proj-tag">UX Research</span></div><div class="proj-link rv">عرض دراسة الحالة ←</div></div></div>
-      <div class="proj-card rv d1" tabindex="0" onclick="goto('cs')"><div class="proj-card-img"><div class="proj-card-img-bg bg-shop" style="height:100%"></div></div><div class="proj-card-body"><div class="proj-role">UI Design · E-Commerce</div><h2 class="proj-title">منصة تجارة إلكترونية</h2><p class="proj-desc">+43٪ في معدل إتمام الشراء خلال 3 أشهر.</p><div class="proj-meta"><span class="proj-tag">E-Commerce</span><span class="proj-tag">UI Design</span></div></div></div>
-      <div class="proj-card rv d2" tabindex="0" onclick="goto('cs')"><div class="proj-card-img"><div class="proj-card-img-bg bg-dash" style="height:100%"></div></div><div class="proj-card-body"><div class="proj-role">Dashboard · Data UX</div><h2 class="proj-title">لوحة تحليلات متقدمة</h2><p class="proj-desc">تحويل بيانات معقدة إلى قرارات في ثوانٍ.</p><div class="proj-meta"><span class="proj-tag">SaaS</span><span class="proj-tag">Dashboard</span></div></div></div>
-      <div class="proj-card rv d1" tabindex="0" onclick="goto('cs')"><div class="proj-card-img"><div class="proj-card-img-bg bg-fin" style="height:100%"></div></div><div class="proj-card-body"><div class="proj-role">Fintech · Mobile</div><h2 class="proj-title">تطبيق مالي شخصي</h2><p class="proj-desc">تجربة مالية سلسة لجيل الألفية السعودي.</p><div class="proj-meta"><span class="proj-tag">Fintech</span><span class="proj-tag">Mobile</span></div></div></div>
-      <div class="proj-card rv d2" tabindex="0" onclick="goto('cs')"><div class="proj-card-img"><div class="proj-card-img-bg bg-edu" style="height:100%"></div></div><div class="proj-card-body"><div class="proj-role">EdTech · Web</div><h2 class="proj-title">منصة تعليمية تفاعلية</h2><p class="proj-desc">نظام تصميم متكامل لمنصة تعليم SaaS.</p><div class="proj-meta"><span class="proj-tag">EdTech</span><span class="proj-tag">Design System</span></div></div></div>
+
+    <div class="proj-hero section">
+      <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>المشاريع</div>
+      <h1 class="sec-title rv" style="font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em">أعمال اخترتها<br>بعناية</h1>
+      <p class="sec-sub rv d1">كل مشروع يمثل تحدياً حقيقياً وحلاً مدروساً — مقاساً بالنتائج.</p>
     </div>
+
+    <div class="proj-grid" role="list">
+
+      <article class="proj-card featured rv" role="listitem" tabindex="0" aria-label="مشروع مميز: رعاية صحية" onclick="goto('cs')">
+        <div class="proj-card-img"><div class="proj-card-img-bg bg-health" style="height:100%"></div></div>
+        <div class="proj-card-body">
+          <div class="proj-role">Health Tech · UX Research · Mobile</div>
+          <h2 class="proj-title">تطبيق رعاية صحية ذكية</h2>
+          <p class="proj-desc">إعادة تصميم رحلة الرعاية الصحية من الحجز حتى الاستشارة — قلّصنا الخطوات وضاعفنا الرضا.</p>
+          <div class="proj-metas">
+            <div class="proj-meta"><div class="proj-meta-k">المدة</div><div class="proj-meta-v">3 أشهر</div></div>
+            <div class="proj-meta"><div class="proj-meta-k">الأثر</div><div class="proj-meta-v">62% تحسن</div></div>
+            <div class="proj-meta"><div class="proj-meta-k">النوع</div><div class="proj-meta-v">iOS · Android</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj-card rv d1" role="listitem" tabindex="0" onclick="goto('cs')">
+        <div class="proj-card-img"><div class="proj-card-img-bg bg-shop" style="height:100%"></div></div>
+        <div class="proj-card-body">
+          <div class="proj-role">E-Commerce · Conversion</div>
+          <h2 class="proj-title">منصة تجارة إلكترونية</h2>
+          <p class="proj-desc">إعادة تصميم تجربة الشراء من الاكتشاف حتى الدفع بنتائج قياسية.</p>
+          <div class="proj-metas">
+            <div class="proj-meta"><div class="proj-meta-k">المدة</div><div class="proj-meta-v">2 شهر</div></div>
+            <div class="proj-meta"><div class="proj-meta-k">الأثر</div><div class="proj-meta-v">43% تحويل</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj-card rv d2" role="listitem" tabindex="0" onclick="goto('cs')">
+        <div class="proj-card-img"><div class="proj-card-img-bg bg-dash" style="height:100%"></div></div>
+        <div class="proj-card-body">
+          <div class="proj-role">SaaS · Dashboard · Data UX</div>
+          <h2 class="proj-title">لوحة تحليلات متقدمة</h2>
+          <p class="proj-desc">تصميم نظام بيانات معقد بواجهة بسيطة توصل للقرار بسرعة.</p>
+          <div class="proj-metas">
+            <div class="proj-meta"><div class="proj-meta-k">المدة</div><div class="proj-meta-v">4 أشهر</div></div>
+            <div class="proj-meta"><div class="proj-meta-k">الأثر</div><div class="proj-meta-v">55% توفير</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj-card rv" role="listitem" tabindex="0" onclick="goto('cs')">
+        <div class="proj-card-img"><div class="proj-card-img-bg bg-fin" style="height:100%"></div></div>
+        <div class="proj-card-body">
+          <div class="proj-role">Fintech · Trust UX</div>
+          <h2 class="proj-title">تطبيق خدمات مالية</h2>
+          <p class="proj-desc">تحويل تجربة مالية معقدة إلى رحلة واثقة وبسيطة.</p>
+          <div class="proj-metas">
+            <div class="proj-meta"><div class="proj-meta-k">المدة</div><div class="proj-meta-v">5 أشهر</div></div>
+            <div class="proj-meta"><div class="proj-meta-k">الأثر</div><div class="proj-meta-v">+70% ثقة</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj-card rv d1" role="listitem" tabindex="0" onclick="goto('cs')">
+        <div class="proj-card-img"><div class="proj-card-img-bg bg-edu" style="height:100%"></div></div>
+        <div class="proj-card-body">
+          <div class="proj-role">EdTech · Engagement</div>
+          <h2 class="proj-title">منصة تعليمية تفاعلية</h2>
+          <p class="proj-desc">تصميم تجربة تعلم تحافظ على تركيز المتعلم وتحفّزه للاستمرار.</p>
+          <div class="proj-metas">
+            <div class="proj-meta"><div class="proj-meta-k">المدة</div><div class="proj-meta-v">6 أشهر</div></div>
+            <div class="proj-meta"><div class="proj-meta-k">الأثر</div><div class="proj-meta-v">88% استمرار</div></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <section class="section" aria-labelledby="proc-h">
+      <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>منهجية العمل</div>
+      <h2 class="sec-title rv" id="proc-h">كيف أعمل</h2>
+      <div class="proc-grid">
+        <div class="proc-step rv"><div class="proc-n" aria-hidden="true">01</div><div class="proc-t">الاكتشاف</div><div class="proc-d">مقابلات عمق، تحليل منافسين، خرائط رحلة المستخدم.</div></div>
+        <div class="proc-step rv d1"><div class="proc-n" aria-hidden="true">02</div><div class="proc-t">التعريف</div><div class="proc-d">تحديد المشكلة الحقيقية وأولويات الحل بدقة.</div></div>
+        <div class="proc-step rv d2"><div class="proc-n" aria-hidden="true">03</div><div class="proc-t">التصميم</div><div class="proc-d">Wireframes، نماذج أولية، نظام تصميم متكامل.</div></div>
+        <div class="proc-step rv d3"><div class="proc-n" aria-hidden="true">04</div><div class="proc-t">القياس</div><div class="proc-d">اختبار قابلية استخدام وتتبع مؤشرات الأداء.</div></div>
+      </div>
+    </section>
+
   </div>
-</div>
+</div><!-- /page-projects -->
 
 
-<!-- ═══════════ CASE STUDIES ═══════════ -->
+<!-- ═══════════════════════════════════════════════════════
+     CASE STUDIES PAGE
+═══════════════════════════════════════════════════════ -->
 <div class="page" id="page-cs">
-  <div class="wrap">
-    <div class="cs-hero-wrap" style="padding-top:calc(72px + 4rem);padding-bottom:var(--s8)"><div class="cs-hero-inner"><div><div class="eyebrow rv"><span class="eyebrow-line"></span>دراسات الحالة</div><h1 class="sec-title rv" style="font-size:clamp(2rem,5vw,3.5rem)">خلف كل رقم — قرار</h1><p class="sec-sub rv d1">ثلاث دراسات حالة توثّق كيف تحوّل التحديات إلى فرص قابلة للقياس.</p></div><div class="rv d2"><div class="cs-badge"><div style="font-family:var(--f-display);font-weight:700;font-size:0.78rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem">المنهجية</div><div style="font-size:0.79rem;color:var(--c-ink2);line-height:1.7">بحث · تعريف · تصميم · اختبار · تسليم</div></div></div></div></div>
-    <div class="cs-list">
-      <article class="cs-item rv" style="direction:rtl"><div class="cs-item-visual bg-cs-1"><div class="cs-item-num">01</div></div><div class="cs-item-body"><div class="cs-item-cat">UX Research · Mobile · Healthcare</div><h2 class="cs-item-title">إعادة تصميم تجربة الرعاية الصحية</h2><p class="cs-item-summary">تطبيق حجز مواعيد يعاني من معدل تخلٍّ 70٪. في 8 أسابيع: بحث، إعادة بناء، اختبار. النتيجة: 62٪ أسرع، 88٪ احتفاظ.</p><div class="cs-chips"><span class="cs-chip">User Interviews</span><span class="cs-chip">Journey Mapping</span><span class="cs-chip">Prototyping</span><span class="cs-chip">Usability Testing</span></div><div class="cs-steps"><div class="cs-step"><span class="cs-step-dot"></span>اكتشاف: 12 مقابلة مستخدم ← 3 مشاكل رئيسية</div><div class="cs-step"><span class="cs-step-dot"></span>تعريف: خريطة رحلة + نقاط الألم المُثبتة</div><div class="cs-step"><span class="cs-step-dot"></span>تصميم وتسليم: 3 تكرارات · 2 جولة اختبار</div></div><button class="btn btn-primary" onclick="goto('projects')" style="margin-top:var(--s3)">عرض التفاصيل</button></div></article>
-      <article class="cs-item rv d1" style="direction:ltr"><div class="cs-item-visual bg-cs-2"><div class="cs-item-num">02</div></div><div class="cs-item-body" style="direction:rtl"><div class="cs-item-cat">UI Design · E-Commerce</div><h2 class="cs-item-title">منصة التجارة الإلكترونية</h2><p class="cs-item-summary">معدل إتمام شراء 28٪. إعادة تصميم كاملة للـ funnel بناءً على تحليل السلوك والـ A/B Testing.</p><div class="cs-chips"><span class="cs-chip">A/B Testing</span><span class="cs-chip">Conversion Optimization</span><span class="cs-chip">Design System</span></div><div class="cs-steps"><div class="cs-step"><span class="cs-step-dot"></span>تحليل Hotjar + Analytics ← 5 نقاط احتكاك</div><div class="cs-step"><span class="cs-step-dot"></span>إعادة تصميم الـ checkout في 4 خطوات بدلاً من 9</div><div class="cs-step"><span class="cs-step-dot"></span>اختبار A/B لمدة 30 يوم → +43٪ تحويل</div></div><button class="btn btn-primary" onclick="goto('projects')" style="margin-top:var(--s3)">عرض التفاصيل</button></div></article>
-      <article class="cs-item rv d2" style="direction:rtl"><div class="cs-item-visual bg-cs-3"><div class="cs-item-num">03</div></div><div class="cs-item-body"><div class="cs-item-cat">Dashboard · Data UX · SaaS</div><h2 class="cs-item-title">لوحة التحليلات المتقدمة</h2><p class="cs-item-summary">فريق يقضي 4 ساعات يومياً في تفسير البيانات. إعادة تصميم المعلومات لجعل القرار يحدث في دقيقة واحدة.</p><div class="cs-chips"><span class="cs-chip">Information Architecture</span><span class="cs-chip">Data Visualization</span><span class="cs-chip">UX Writing</span></div><div class="cs-steps"><div class="cs-step"><span class="cs-step-dot"></span>مراقبة 8 مستخدمين أثناء العمل ← أنماط الاستخدام</div><div class="cs-step"><span class="cs-step-dot"></span>إعادة هيكلة المعلومات: أهم → أقل أهمية</div><div class="cs-step"><span class="cs-step-dot"></span>الناتج: 55٪ تقليص في وقت التحليل</div></div><button class="btn btn-primary" onclick="goto('projects')" style="margin-top:var(--s3)">عرض التفاصيل</button></div></article>
-    </div>
-    <div class="cs-cta rv" style="margin-top:var(--s10)"><h2>هل لديك مشروع يحتاج إلى تحويل؟</h2><p>أبدأ بفهم مشكلتك الحقيقية — لا بتقديم عروض.</p><div class="cs-cta-btns"><button class="btn btn-primary" onclick="goto('about');setTimeout(()=>{document.getElementById('contact').scrollIntoView({behavior:'smooth'})},80)">ابدأ المحادثة</button><button class="btn btn-outline" onclick="goto('projects')">استعرض الأعمال</button></div></div>
-    <div class="method-grid" style="margin-bottom:var(--s10)">
-      <div class="method-card rv"><div class="method-icon">🔬</div><div class="method-title">Discovery</div><div class="method-desc">مقابلات، ملاحظة، تحليل بيانات. الفهم قبل أي قرار.</div><div class="method-tools"><span class="method-tool">Maze</span><span class="method-tool">Hotjar</span><span class="method-tool">Notion</span></div></div>
-      <div class="method-card rv d1"><div class="method-icon">🗺</div><div class="method-title">Definition</div><div class="method-desc">خرائط الرحلة، شخصيات المستخدم، نقاط الألم الموثّقة.</div><div class="method-tools"><span class="method-tool">FigJam</span><span class="method-tool">Miro</span></div></div>
-      <div class="method-card rv d2"><div class="method-icon">✏️</div><div class="method-title">Design</div><div class="method-desc">wireframes، نماذج أولية، تكرار سريع. الفكرة إلى واجهة.</div><div class="method-tools"><span class="method-tool">Figma</span><span class="method-tool">Principle</span></div></div>
+
+  <div class="cs-hero-wrap">
+    <div class="wrap">
+      <div class="cs-hero-inner">
+        <div>
+          <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>دراسات الحالة</div>
+          <h1 class="about-name rv">التصميم بالأرقام</h1>
+          <p class="about-bio rv d1">نتائج قابلة للقياس من تجارب مصممة باحترافية وبحث حقيقي.</p>
+          <div class="cs-kpis rv d2">
+            <div class="cs-kpi"><div class="cs-kpi-num" data-t="62" data-s="%">62%</div><div class="cs-kpi-label">تقليص وقت المهام</div></div>
+            <div class="cs-kpi"><div class="cs-kpi-num" data-t="43" data-s="%">43%</div><div class="cs-kpi-label">تحسن التحويل</div></div>
+            <div class="cs-kpi"><div class="cs-kpi-num" data-t="88" data-s="%">88%</div><div class="cs-kpi-label">معدل الاحتفاظ</div></div>
+            <div class="cs-kpi"><div class="cs-kpi-num" data-t="55" data-s="%">55%</div><div class="cs-kpi-label">توفير وقت التحليل</div></div>
+          </div>
+        </div>
+        <div class="cs-hero-img rv d1">
+          <div class="bg-cs-1" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;min-height:240px;border-radius:var(--r-xl)">
+            <svg width="60" height="60" viewBox="0 0 64 64" fill="none" opacity="0.35"><circle cx="32" cy="32" r="30" stroke="white" stroke-width="2"/><path d="M20 32h24M32 20v24" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="wrap">
+    <section class="section">
+      <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>أبرز المشاريع</div>
+      <h2 class="sec-title rv">التفاصيل كاملة</h2>
+
+      <div class="cs-item rv" tabindex="0" aria-label="دراسة حالة: رعاية صحية">
+        <div class="cs-item-visual bg-cs-1"><div class="cs-item-num" aria-hidden="true">01</div></div>
+        <div class="cs-item-body">
+          <div class="cs-item-cat">Health Tech · UX Research</div>
+          <h3 class="cs-item-title">رعاية صحية ذكية — إعادة تعريف رحلة المريض</h3>
+          <p class="cs-item-summary">المشكلة: حجز المواعيد كان يستغرق 8 خطوات ويفقد 34٪ من المستخدمين. حللنا 200 مقابلة مستخدم وأعدنا رسم الرحلة بالكامل.</p>
+          <div class="cs-chips"><span class="cs-chip">UX Research</span><span class="cs-chip">Prototyping</span><span class="cs-chip">Usability Testing</span></div>
+          <div class="cs-steps">
+            <div class="cs-step"><div class="cs-step-dot"></div><span>تحليل 200 مقابلة مستخدم معمّقة</span></div>
+            <div class="cs-step"><div class="cs-step-dot"></div><span>تقليص الرحلة من 8 خطوات إلى 3</span></div>
+            <div class="cs-step"><div class="cs-step-dot"></div><span>5 دورات اختبار نماذج أولية</span></div>
+          </div>
+          <button class="btn btn-primary" style="font-size:0.82rem;padding:0.65rem 1.55rem" onclick="goto('projects')">عرض تفاصيل كاملة</button>
+        </div>
+      </div>
+
+      <div class="cs-item rv d1" tabindex="0" aria-label="دراسة حالة: تجارة إلكترونية">
+        <div class="cs-item-visual bg-cs-2"><div class="cs-item-num" aria-hidden="true">02</div></div>
+        <div class="cs-item-body">
+          <div class="cs-item-cat">E-Commerce · Conversion Design</div>
+          <h3 class="cs-item-title">منصة تجارية — مضاعفة معدل الإتمام</h3>
+          <p class="cs-item-summary">معدل إتمام الشراء كان 1.8٪ — أقل من نصف المتوسط الصناعي. حللنا نقاط التخلي وأعدنا تصميم صفحات المنتج والدفع.</p>
+          <div class="cs-chips"><span class="cs-chip">Conversion Optimization</span><span class="cs-chip">A/B Testing</span><span class="cs-chip">Motion Design</span></div>
+          <div class="cs-steps">
+            <div class="cs-step"><div class="cs-step-dot"></div><span>تحليل Hotjar لـ 10,000 جلسة</span></div>
+            <div class="cs-step"><div class="cs-step-dot"></div><span>إعادة تصميم 12 شاشة رئيسية</span></div>
+            <div class="cs-step"><div class="cs-step-dot"></div><span>اختبار A/B لـ 6 أسابيع متتالية</span></div>
+          </div>
+          <button class="btn btn-primary" style="font-size:0.82rem;padding:0.65rem 1.55rem" onclick="goto('projects')">عرض تفاصيل كاملة</button>
+        </div>
+      </div>
+
+      <div class="cs-item rv d2" tabindex="0" aria-label="دراسة حالة: نظام تحليلات">
+        <div class="cs-item-visual bg-cs-3"><div class="cs-item-num" aria-hidden="true">03</div></div>
+        <div class="cs-item-body">
+          <div class="cs-item-cat">SaaS · Dashboard · Design System</div>
+          <h3 class="cs-item-title">لوحة تحليلات — البيانات تتحول إلى قرارات</h3>
+          <p class="cs-item-summary">المديرون كانوا يقضون ساعتين يومياً لاستخراج رؤى من تقارير ضخمة. أنشأنا نظام تصميم متكامل ولوحة ذكية تعرض ما يهم فقط.</p>
+          <div class="cs-chips"><span class="cs-chip">Design System</span><span class="cs-chip">Data Visualization</span><span class="cs-chip">Enterprise UX</span></div>
+          <div class="cs-steps">
+            <div class="cs-step"><div class="cs-step-dot"></div><span>بناء نظام تصميم من 220 مكوناً</span></div>
+            <div class="cs-step"><div class="cs-step-dot"></div><span>تصميم 34 شاشة وحالة بيانات</span></div>
+            <div class="cs-step"><div class="cs-step-dot"></div><span>مراجعة شاملة WCAG AA</span></div>
+          </div>
+          <button class="btn btn-primary" style="font-size:0.82rem;padding:0.65rem 1.55rem" onclick="goto('projects')">عرض تفاصيل كاملة</button>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="impact-strip rv" aria-label="ملخص الأثر">
+      <div class="impact-item"><div class="impact-num" data-t="30" data-s="+">30+</div><div class="impact-label">مشروع منجز بنجاح</div></div>
+      <div class="impact-item"><div class="impact-num" data-t="5" data-s="">5</div><div class="impact-label">سنوات تجربة</div></div>
+      <div class="impact-item"><div class="impact-num" data-t="100" data-s="%">100%</div><div class="impact-label">مشاريع مسلّمة في الموعد</div></div>
+    </div>
+
+    <section class="section" aria-labelledby="method-h">
+      <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>المنهجية</div>
+      <h2 class="sec-title rv" id="method-h">أدوات وأساليب العمل</h2>
+      <div class="method-grid">
+        <div class="method-card rv">
+          <div class="method-icon" aria-hidden="true">🔍</div>
+          <div class="method-title">User Research</div>
+          <div class="method-desc">مقابلات، استبيانات، اختبارات قابلية الاستخدام — لفهم المستخدم قبل التصميم.</div>
+          <div class="method-tools"><span class="method-tool">Maze</span><span class="method-tool">Hotjar</span><span class="method-tool">UserTesting</span></div>
+        </div>
+        <div class="method-card rv d1">
+          <div class="method-icon" aria-hidden="true">🎨</div>
+          <div class="method-title">UI Design</div>
+          <div class="method-desc">واجهات بصرية راقية — جمال هادف يخدم التجربة لا يشتتها.</div>
+          <div class="method-tools"><span class="method-tool">Figma</span><span class="method-tool">Principle</span><span class="method-tool">Framer</span></div>
+        </div>
+        <div class="method-card rv d2">
+          <div class="method-icon" aria-hidden="true">📐</div>
+          <div class="method-title">Design Systems</div>
+          <div class="method-desc">أنظمة تصميم قابلة للتوسع تضمن الاتساق وتسرّع التسليم.</div>
+          <div class="method-tools"><span class="method-tool">Variables</span><span class="method-tool">Auto Layout</span><span class="method-tool">Tokens</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-cta rv">
+      <h2>مشروعك يستحق تجربة مستخدم استثنائية</h2>
+      <p>ابدأ محادثة — سنحدد معاً كيف يمكن للتصميم أن يحقق أهدافك.</p>
+      <div class="cs-cta-btns">
+        <button class="btn btn-primary" onclick="goto('about');setTimeout(()=>{var el=document.getElementById('contact');if(el)el.scrollIntoView({behavior:'smooth'})},80)">ابدأ مشروعك</button>
+        <button class="btn btn-outline" onclick="goto('projects')">استعرض المشاريع</button>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /page-cs -->
 
 
-<!-- ═══════════ ABOUT ═══════════ -->
+<!-- ═══════════════════════════════════════════════════════
+     ABOUT PAGE
+═══════════════════════════════════════════════════════ -->
 <div class="page" id="page-about">
   <div class="wrap">
+
     <div class="about-hero">
       <div>
-        <div class="eyebrow rv"><span class="eyebrow-line"></span>عني</div>
+        <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>عني</div>
         <h1 class="about-name rv">ليان السالم</h1>
-        <div class="about-role rv d1">مصممة تجارب رقمية · UX/UI Designer</div>
-        <p class="about-bio rv d2">أصمّم منتجات رقمية تُحقق نتائج قابلة للقياس. خمس سنوات في تحويل مشاكل المستخدمين إلى واجهات تعمل — في التقنية الصحية والمالية والتعليمية.</p>
-        <p class="about-bio rv d3">أؤمن أن أفضل التصاميم هي التي لا تحتاج شرحاً — تشعر بها قبل أن تلاحظها.</p>
-        <div class="tools-wrap rv d4"><span class="tool">Figma</span><span class="tool">FigJam</span><span class="tool">Maze</span><span class="tool">Hotjar</span><span class="tool">Principle</span><span class="tool">Notion</span><span class="tool">Miro</span><span class="tool">Zeplin</span></div>
-        <div style="display:flex;gap:var(--s2);margin-top:var(--s4);flex-wrap:wrap" class="rv d5"><button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">تواصل معي</button><button class="btn btn-outline" onclick="goto('projects')">استعرض الأعمال</button></div>
+        <div class="about-role rv d1">مصممة UX/UI · متخصصة في تجارب رقمية راقية</div>
+        <p class="about-bio rv d2">أؤمن أن التصميم الجيد يغيّر حياة الناس. خلال خمس سنوات، عملت مع شركات ناشئة وعلامات تجارية راسخة لتصميم تجارب تولّد نتائج قابلة للقياس.</p>
+        <p class="about-bio rv d3">منهجيتي تجمع الفهم العميق للإنسان مع التفكير الاستراتيجي. الجماليات بلا وظيفة — مجرد زخرفة.</p>
+        <div class="tools-wrap rv d4">
+          <span class="tool">Figma</span><span class="tool">Principle</span><span class="tool">Framer</span>
+          <span class="tool">Maze</span><span class="tool">Hotjar</span><span class="tool">Miro</span>
+          <span class="tool">Spline</span><span class="tool">Notion</span>
+        </div>
       </div>
-      <div class="rv d1"><div class="about-photo"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=85&fit=crop&crop=faces" alt="ليان السالم" loading="lazy" width="320" height="427" onerror="this.parentElement.style.background='linear-gradient(145deg,#1B3828,#28503F)'"/></div></div>
+      <div class="rv d1">
+        <div class="about-photo">
+          <img
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=88&fit=crop&crop=faces"
+            alt="ليان السالم — مصممة UX/UI"
+            loading="eager"
+            onerror="this.parentElement.style.background='linear-gradient(145deg,#28503F,#1B3828)'"
+          />
+        </div>
+      </div>
     </div>
+
   </div>
+
   <div class="skills-bg">
     <div class="wrap">
-      <section class="section">
-        <div class="eyebrow rv"><span class="eyebrow-line"></span>المهارات</div>
-        <h2 class="sec-title rv">ماذا أُتقن</h2>
+      <section class="section" aria-labelledby="skills-h">
+        <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>التخصصات</div>
+        <h2 class="sec-title rv" id="skills-h">ما أفعله بإتقان</h2>
         <div class="skills-grid">
-          <div class="sk rv"><div class="sk-icon">🔬</div><div class="sk-name">UX Research</div><div class="sk-desc">مقابلات، اختبار مستخدم، تحليل بيانات سلوكية</div></div>
-          <div class="sk rv d1"><div class="sk-icon">✏️</div><div class="sk-name">UI Design</div><div class="sk-desc">واجهات راقية، أنظمة تصميم، مكتبات مكونات</div></div>
-          <div class="sk rv d2"><div class="sk-icon">📐</div><div class="sk-name">Information Architecture</div><div class="sk-desc">هندسة المعلومات، التدفق، التسلسل المنطقي</div></div>
-          <div class="sk rv d3"><div class="sk-icon">📱</div><div class="sk-name">Mobile-First</div><div class="sk-desc">تصميم iOS/Android، تجربة اللمس، إمكانية الوصول</div></div>
-          <div class="sk rv d1"><div class="sk-icon">📊</div><div class="sk-name">Data-Driven Design</div><div class="sk-desc">A/B Testing، تحليل التحويل، قرارات مبنية على أرقام</div></div>
-          <div class="sk rv d2"><div class="sk-icon">🎯</div><div class="sk-name">Product Strategy</div><div class="sk-desc">رؤية المنتج، خارطة الطريق، أولويات المستخدم</div></div>
-          <div class="sk rv d3"><div class="sk-icon">⚡</div><div class="sk-name">Prototyping</div><div class="sk-desc">نماذج أولية تفاعلية عالية الأمانة في Figma</div></div>
-          <div class="sk rv d4"><div class="sk-icon">🌐</div><div class="sk-name">Design Systems</div><div class="sk-desc">أنظمة تصميم قابلة للتوسع ومتسقة عبر المنتجات</div></div>
+          <div class="sk rv"><div class="sk-icon" aria-hidden="true">🔍</div><div class="sk-name">UX Research</div><div class="sk-desc">مقابلات، اختبارات قابلية، تحليل نوعي وكمي.</div></div>
+          <div class="sk rv d1"><div class="sk-icon" aria-hidden="true">🎨</div><div class="sk-name">UI Design</div><div class="sk-desc">واجهات راقية تجمع الجماليات بالوضوح الوظيفي.</div></div>
+          <div class="sk rv d2"><div class="sk-icon" aria-hidden="true">⚡</div><div class="sk-name">Interaction Design</div><div class="sk-desc">تفاعلات سلسة تجعل التنقل تجربة بحد ذاتها.</div></div>
+          <div class="sk rv d3"><div class="sk-icon" aria-hidden="true">📊</div><div class="sk-name">UX Strategy</div><div class="sk-desc">ربط التصميم بأهداف الأعمال وتحليل الأثر.</div></div>
+          <div class="sk rv"><div class="sk-icon" aria-hidden="true">📐</div><div class="sk-name">Design Systems</div><div class="sk-desc">أنظمة قابلة للتوسع تضمن الاتساق الكامل.</div></div>
+          <div class="sk rv d1"><div class="sk-icon" aria-hidden="true">🌐</div><div class="sk-name">Arabic UX</div><div class="sk-desc">خبرة عميقة في تصميم تجارب RTL الثقافية.</div></div>
+          <div class="sk rv d2"><div class="sk-icon" aria-hidden="true">✦</div><div class="sk-name">Motion Design</div><div class="sk-desc">حركة هادفة تعزز التجربة دون تشتيت.</div></div>
+          <div class="sk rv d3"><div class="sk-icon" aria-hidden="true">🤝</div><div class="sk-name">Cross-functional</div><div class="sk-desc">تعاون وثيق مع المنتج والتطوير والتسويق.</div></div>
         </div>
       </section>
     </div>
   </div>
+
   <div class="wrap">
     <section class="section" aria-labelledby="timeline-h">
-      <div class="eyebrow rv"><span class="eyebrow-line"></span>المسيرة</div>
+      <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>المسيرة</div>
       <h2 class="sec-title rv" id="timeline-h">الخبرة والمسار</h2>
       <div class="timeline">
-        <div class="tl-item rv"><div><div class="tl-yr">2022 – الآن</div><div class="tl-co">مستقلة</div></div><div class="tl-body"><div class="tl-role">مصممة UX/UI مستقلة</div><div class="tl-desc">أعمل مع شركات ناشئة في التقنية الصحية والمالية والتعليمية — تصميم محكوم بالبيانات وموجّه بالنتائج.</div></div></div>
-        <div class="tl-item rv d1"><div><div class="tl-yr">2020 – 2022</div><div class="tl-co">Codeart</div></div><div class="tl-body"><div class="tl-role">مصممة تجربة مستخدم أولى</div><div class="tl-desc">قدت تصميم منصة SaaS وأنشأت نظام تصميم متكامل يُستخدم حتى اليوم.</div></div></div>
-        <div class="tl-item rv d2"><div><div class="tl-yr">2019 – 2020</div><div class="tl-co">Digital Studio</div></div><div class="tl-body"><div class="tl-role">مصممة واجهات</div><div class="tl-desc">تطبيقات موبايل لعملاء في التجزئة والخدمات — تعلّمت الانضباط والسرعة.</div></div></div>
+        <div class="tl-item rv">
+          <div><div class="tl-yr">2022 – الآن</div><div class="tl-co">مستقلة</div></div>
+          <div class="tl-body"><div class="tl-role">مصممة UX/UI مستقلة</div><div class="tl-desc">أعمل مع شركات ناشئة في التقنية الصحية والمالية والتعليمية — تصميم محكوم بالبيانات وموجّه بالنتائج.</div></div>
+        </div>
+        <div class="tl-item rv d1">
+          <div><div class="tl-yr">2020 – 2022</div><div class="tl-co">Codeart</div></div>
+          <div class="tl-body"><div class="tl-role">مصممة تجربة مستخدم أولى</div><div class="tl-desc">قدت تصميم منصة SaaS وأنشأت نظام تصميم متكامل يُستخدم حتى اليوم.</div></div>
+        </div>
+        <div class="tl-item rv d2">
+          <div><div class="tl-yr">2019 – 2020</div><div class="tl-co">Digital Studio</div></div>
+          <div class="tl-body"><div class="tl-role">مصممة واجهات</div><div class="tl-desc">تطبيقات موبايل لعملاء في التجزئة والخدمات — تعلّمت الانضباط والسرعة.</div></div>
+        </div>
       </div>
     </section>
+
+    <!-- CONTACT -->
     <section class="section" id="contact" aria-labelledby="contact-h">
-      <div class="eyebrow rv"><span class="eyebrow-line"></span>تواصل</div>
+      <div class="eyebrow rv"><span class="eyebrow-line" aria-hidden="true"></span>تواصل</div>
       <h2 class="sec-title rv" id="contact-h">هل لديك مشروع؟</h2>
       <p class="sec-sub rv d1">أنا متاحة لمشاريع جديدة وأتطلع للتعاون مع فرق طموحة.</p>
+
       <div class="contact-grid">
-        <div><div class="channels rv d2">
-          <a href="mailto:hello@layan.design" class="channel"><div class="channel-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="2"/><path d="m2 7 10 7 10-7" stroke="currentColor" stroke-width="2"/></svg></div><div><div class="channel-lbl">البريد الإلكتروني</div><div class="channel-val">hello@layan.design</div></div></a>
-          <a href="https://linkedin.com" class="channel" target="_blank" rel="noopener noreferrer"><div class="channel-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="9" width="4" height="12" rx="1" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></div><div><div class="channel-lbl">LinkedIn</div><div class="channel-val">linkedin.com/in/layan</div></div></a>
-          <a href="https://behance.net" class="channel" target="_blank" rel="noopener noreferrer"><div class="channel-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029H23.726zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11h3.584c2.508 0 2.906-3-.312-3H3v3zm3.391 3H3v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg></div><div><div class="channel-lbl">Behance</div><div class="channel-val">behance.net/layan</div></div></a>
-          <a href="https://wa.me/966500000000" class="channel" target="_blank" rel="noopener noreferrer"><div class="channel-icon" style="background:rgba(37,211,102,0.11)"><svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div><div class="channel-lbl">واتساب</div><div class="channel-val">+966 500 000 000</div></div></a>
-        </div></div>
+        <div>
+          <div class="channels rv d2">
+            <a href="/cdn-cgi/l/email-protection#dfb3bea6beb19fbaa7beb2afb3baf1bcb0b2" class="channel" aria-label="البريد الإلكتروني">
+              <div class="channel-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="2"/><path d="m2 7 10 7 10-7" stroke="currentColor" stroke-width="2"/></svg></div>
+              <div><div class="channel-lbl">البريد الإلكتروني</div><div class="channel-val"><span class="__cf_email__" data-cfemail="7418150d151a34110c15190418115a171b19">[email&#160;protected]</span></div></div>
+            </a>
+            <a href="https://linkedin.com" class="channel" target="_blank" rel="noopener noreferrer">
+              <div class="channel-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="9" width="4" height="12" rx="1" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg></div>
+              <div><div class="channel-lbl">LinkedIn</div><div class="channel-val">linkedin.com/in/layan</div></div>
+            </a>
+            <a href="https://behance.net" class="channel" target="_blank" rel="noopener noreferrer">
+              <div class="channel-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029H23.726zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11h3.584c2.508 0 2.906-3-.312-3H3v3zm3.391 3H3v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg></div>
+              <div><div class="channel-lbl">Behance</div><div class="channel-val">behance.net/layan</div></div>
+            </a>
+            <a href="https://wa.me/966500000000" class="channel" target="_blank" rel="noopener noreferrer">
+              <div class="channel-icon" style="background:rgba(37,211,102,0.11)" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+              <div><div class="channel-lbl">واتساب</div><div class="channel-val">+966 500 000 000</div></div>
+            </a>
+          </div>
+        </div>
+
         <div class="cf rv d1">
-          <div class="cf-group"><label class="cf-label" for="cf-name">الاسم</label><input class="cf-input" type="text" id="cf-name" name="name" placeholder="اسمك الكريم" autocomplete="name" dir="rtl"/></div>
-          <div class="cf-group"><label class="cf-label" for="cf-email">البريد الإلكتروني</label><input class="cf-input" type="email" id="cf-email" name="email" placeholder="email@example.com" autocomplete="email" dir="ltr" style="text-align:right"/></div>
-          <div class="cf-group"><label class="cf-label" for="cf-msg">تفاصيل المشروع</label><textarea class="cf-ta" id="cf-msg" name="message" placeholder="أخبرني عن مشروعك، توقعاتك، والمدة الزمنية..." dir="rtl"></textarea></div>
-          <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="submitForm(this)" type="button">إرسال الرسالة</button>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-name">الاسم</label>
+            <input class="cf-input" type="text" id="cf-name" name="name" placeholder="اسمك الكريم" autocomplete="name" dir="rtl"/>
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-email">البريد الإلكتروني</label>
+            <input class="cf-input" type="email" id="cf-email" name="email" placeholder="email@example.com" autocomplete="email" dir="ltr" style="text-align:right"/>
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-msg">تفاصيل المشروع</label>
+            <textarea class="cf-ta" id="cf-msg" name="message" placeholder="أخبرني عن مشروعك، توقعاتك، والمدة الزمنية..." dir="rtl"></textarea>
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="submitForm(this)" type="button">
+            إرسال الرسالة
+          </button>
         </div>
       </div>
     </section>
   </div>
+
   <div style="background:var(--green);text-align:center;padding:clamp(3.5rem,7vw,5.5rem) clamp(1.25rem,5vw,3.5rem)">
-    <p class="rv" style="font-family:var(--f-display);font-size:clamp(1.55rem,3.5vw,2.5rem);color:#fff;font-weight:800;line-height:1.28;margin-bottom:var(--s5);letter-spacing:-0.02em">هل أنت مستعد لتجربة<br>تصميم مختلف؟</p>
-    <button class="btn btn-gold rv d1" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">ابدأ محادثة الآن</button>
+    <p class="rv" style="font-family:var(--f-display);font-size:clamp(1.55rem,3.5vw,2.5rem);color:#fff;font-weight:800;line-height:1.28;margin-bottom:var(--s5);letter-spacing:-0.02em">
+      هل أنت مستعد لتجربة<br>تصميم مختلف؟
+    </p>
+    <button class="btn btn-gold rv d1" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      ابدأ محادثة الآن
+    </button>
   </div>
+
 </div><!-- /page-about -->
 
 
-<!-- FOOTER -->
+<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer role="contentinfo">
   <div class="footer-grid">
     <div>
       <a class="logo" href="#" onclick="goto('home');return false;" aria-label="ليان السالم">
-        <svg class="logo-badge" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="13" fill="#1B3828"/><rect x="2.2" y="2.2" width="39.6" height="39.6" rx="12" fill="none" stroke="#C8A74A" stroke-width=".7" stroke-dasharray="2.5 2"/><path d="M26 10 C25 9.2, 23 9, 21 9.5 C18 10.4, 16 12.2, 15 14.8 C14 17.3, 15 20.5, 17 22 C18.6 23.2, 21 24, 21.5 24.8" stroke="#F0EBE0" stroke-width="1.65" stroke-linecap="round" fill="none"/><circle cx="14" cy="28.5" r="1.5" fill="#C8A74A"/><path d="M19 20 Q22 17, 25.5 20 Q27.5 21.5, 27.5 24 C27.5 26.7, 25.2 28.5, 22 29" stroke="#F0EBE0" stroke-width="1.5" stroke-linecap="round" fill="none"/><circle cx="20" cy="32.5" r="1.15" fill="#C8A74A"/><circle cx="23" cy="34.2" r="1.15" fill="#C8A74A"/><circle cx="26" cy="32.5" r="1.15" fill="#C8A74A"/></svg>
-        <div class="logo-wordmark"><span class="logo-arabic">ليان السالم</span><span class="logo-en">UX · UI · Design</span></div>
+        <svg class="logo-badge" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="1" y="1" width="42" height="42" rx="13" fill="#1B3828"/>
+          <rect x="2.2" y="2.2" width="39.6" height="39.6" rx="12" fill="none" stroke="#C8A74A" stroke-width=".7" stroke-dasharray="2.5 2"/>
+          <path d="M26 10 C25 9.2, 23 9, 21 9.5 C18 10.4, 16 12.2, 15 14.8 C14 17.3, 15 20.5, 17 22 C18.6 23.2, 21 24, 21.5 24.8" stroke="#F0EBE0" stroke-width="1.65" stroke-linecap="round" fill="none"/>
+          <circle cx="14" cy="28.5" r="1.5" fill="#C8A74A"/>
+          <path d="M19 20 Q22 17, 25.5 20 Q27.5 21.5, 27.5 24 C27.5 26.7, 25.2 28.5, 22 29" stroke="#F0EBE0" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle cx="20" cy="32.5" r="1.15" fill="#C8A74A"/>
+          <circle cx="23" cy="34.2" r="1.15" fill="#C8A74A"/>
+          <circle cx="26" cy="32.5" r="1.15" fill="#C8A74A"/>
+        </svg>
+        <div class="logo-wordmark">
+          <span class="logo-arabic">ليان السالم</span>
+          <span class="logo-en">UX · UI · Design</span>
+        </div>
       </a>
       <p class="footer-about">مصممة تجارب رقمية متخصصة في واجهات راقية تجمع الجماليات بسهولة الاستخدام والنتائج.</p>
     </div>
-    <div class="footer-col"><h4>روابط سريعة</h4><ul class="footer-links" role="list"><li><a href="#" onclick="goto('home');return false">الرئيسية</a></li><li><a href="#" onclick="goto('projects');return false">المشاريع</a></li><li><a href="#" onclick="goto('cs');return false">دراسات الحالة</a></li><li><a href="#" onclick="goto('about');return false">عني</a></li></ul></div>
-    <div class="footer-col"><h4>تواصل</h4><ul class="footer-links" role="list"><li><a href="mailto:hello@layan.design">hello@layan.design</a></li><li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://behance.net" target="_blank" rel="noopener noreferrer">Behance</a></li><li><a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">Dribbble</a></li></ul></div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul class="footer-links" role="list">
+        <li><a href="#" onclick="goto('home');return false">الرئيسية</a></li>
+        <li><a href="#" onclick="goto('projects');return false">المشاريع</a></li>
+        <li><a href="#" onclick="goto('cs');return false">دراسات الحالة</a></li>
+        <li><a href="#" onclick="goto('about');return false">عني</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل</h4>
+      <ul class="footer-links" role="list">
+        <li><a href="/cdn-cgi/l/email-protection#086469716966486d70696578646d266b6765"><span class="__cf_email__" data-cfemail="224e435b434c62475a434f524e470c414d4f">[email&#160;protected]</span></a></li>
+        <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://behance.net" target="_blank" rel="noopener noreferrer">Behance</a></li>
+        <li><a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">Dribbble</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2025 ليان السالم. جميع الحقوق محفوظة.</span>
-    <span class="footer-made">صُنع بعناية ✦</span>
-  </div>
+</div><!-- /footer-grid -->
+<div class="footer-bottom">
+  <span style="color:rgba(255,255,255,0.35);font-size:0.7rem">© 2025 ليان السالم · جميع الحقوق محفوظة</span>
+  <span class="footer-made">Crafted with precision · KSA</span>
+</div>
 </footer>
 
 <script src="main.js"></script>

@@ -1,15 +1,21 @@
 /* ═══════════════════════════════════════════════════════════════
-   LAYAN AL-SALEM — Portfolio JS
-   Clean, performant, competition-level
+   LAYAN AL-SALEM — Portfolio JS · Award Edition
+   ─────────────────────────────────────────────────────────────
+   Key upgrades:
+   ① Dark mode is DEFAULT — only reads localStorage override
+   ② Canvas: brighter particles in dark, refined in light
+   ③ Magnetic CTA: subtle cursor-following on primary button
+   ④ Stat underline trigger fires on .stat reveal
+   ⑤ Smoother scroll restoration
 ═══════════════════════════════════════════════════════════════ */
 
-// ── Helpers ──────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
 const raf = fn => requestAnimationFrame(fn);
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Page Navigation ──────────────────────────────────────────
+/* ══════════════════════════════════════
+   PAGE NAVIGATION
+══════════════════════════════════════ */
 function goto(p) {
   document.querySelectorAll('.page').forEach(el => el.classList.remove('on'));
   const target = $('page-' + p);
@@ -22,10 +28,11 @@ function goto(p) {
   setTimeout(kickReveal, 60);
   closeMenu();
 }
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Mobile Menu ──────────────────────────────────────────────
+/* ══════════════════════════════════════
+   MOBILE MENU
+══════════════════════════════════════ */
 let menuOpen = false;
 
 function toggleMenu() {
@@ -48,11 +55,13 @@ function closeMenu() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && menuOpen) closeMenu();
 });
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Dark Mode ────────────────────────────────────────────────
-// Dark mode is the DEFAULT premium experience on first load.
+/* ══════════════════════════════════════
+   DARK MODE — Default is DARK
+   Logic: check localStorage first.
+   If no saved preference → use dark.
+══════════════════════════════════════ */
 const savedTheme = localStorage.getItem('layan-theme') || 'dark';
 applyTheme(savedTheme);
 
@@ -64,27 +73,13 @@ function applyTheme(t) {
 
 function toggleTheme() {
   const curr = document.documentElement.getAttribute('data-theme');
-  const next = curr === 'dark' ? 'light' : 'dark';
-
-  // Smooth cross-fade transition
-  document.documentElement.classList.add('theme-transitioning');
-  applyTheme(next);
-
-  // Create a ripple from the button
-  const btn = document.getElementById('theme-btn');
-  if (btn) {
-    btn.style.setProperty('--ripple', '1');
-    setTimeout(() => btn.style.removeProperty('--ripple'), 500);
-  }
-
-  setTimeout(() => {
-    document.documentElement.classList.remove('theme-transitioning');
-  }, 600);
+  applyTheme(curr === 'dark' ? 'light' : 'dark');
 }
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Scroll Handlers ──────────────────────────────────────────
+/* ══════════════════════════════════════
+   SCROLL HANDLERS
+══════════════════════════════════════ */
 const _nav   = $('nav');
 const _wa    = $('wa');
 const _pfill = $('prog-fill');
@@ -96,14 +91,14 @@ window.addEventListener('scroll', () => {
   if (_nav)   _nav.classList.toggle('solid', top > 30);
   if (_wa)    _wa.classList.toggle('show', top > 400);
 }, { passive: true });
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Reveal Animations ────────────────────────────────────────
+/* ══════════════════════════════════════
+   REVEAL ANIMATIONS + STAT UNDERLINE
+══════════════════════════════════════ */
 let _revealObs = null;
 
 function kickReveal() {
-  // Reuse observer; create once per page switch
   if (_revealObs) _revealObs.disconnect();
 
   _revealObs = new IntersectionObserver(entries => {
@@ -113,23 +108,29 @@ function kickReveal() {
         _revealObs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
 
+  // Stat blocks get .vis for underline animation
+  document.querySelectorAll('.page.on .stat:not(.vis)')
+    .forEach(el => _revealObs.observe(el));
+
+  // General reveal
   document.querySelectorAll('.page.on .rv:not(.vis)')
     .forEach(el => _revealObs.observe(el));
 }
 
 kickReveal();
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Counter Animation ────────────────────────────────────────
+/* ══════════════════════════════════════
+   ANIMATED COUNTER
+══════════════════════════════════════ */
 function animCount(el) {
   if (el._done) return;
   el._done = true;
   const target = +el.dataset.t;
   const suf    = el.dataset.s !== undefined ? el.dataset.s : '+';
-  const dur    = 1500;
+  const dur    = 1600;
   let start    = null;
 
   raf(function step(ts) {
@@ -151,10 +152,51 @@ const _cObs = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 
 document.querySelectorAll('[data-t]').forEach(el => _cObs.observe(el));
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Mobile Testimonials Slider ────────────────────────────────
+/* ══════════════════════════════════════
+   MAGNETIC CTA
+   Subtle: cursor offset makes button "follow" pointer
+   Max displacement: 6px — polished, not gimmicky
+══════════════════════════════════════ */
+(function initMagneticCTA() {
+  const btn = document.querySelector('.cta-primary');
+  if (!btn || window.matchMedia('(hover: none)').matches) return;
+
+  let rect, raf_id;
+
+  function onEnter() {
+    rect = btn.getBoundingClientRect();
+  }
+
+  function onMove(e) {
+    if (!rect) return;
+    cancelAnimationFrame(raf_id);
+    raf_id = raf(() => {
+      const cx = rect.left + rect.width  / 2;
+      const cy = rect.top  + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width  / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      const strength = 6;
+      btn.style.transform = `translate(${dx * strength}px, ${dy * strength - 3}px)`;
+    });
+  }
+
+  function onLeave() {
+    cancelAnimationFrame(raf_id);
+    btn.style.transform = '';
+    rect = null;
+  }
+
+  btn.addEventListener('mouseenter', onEnter);
+  btn.addEventListener('mousemove',  onMove);
+  btn.addEventListener('mouseleave', onLeave);
+})();
+
+
+/* ══════════════════════════════════════
+   MOBILE TESTIMONIALS SLIDER
+══════════════════════════════════════ */
 (function () {
   const track = $('ttrack');
   if (!track) return;
@@ -166,9 +208,6 @@ document.querySelectorAll('[data-t]').forEach(el => _cObs.observe(el));
   function go(n) {
     n   = ((n % total) + total) % total;
     cur = n;
-
-    // RTL: positive translateX moves slides left in RTL — we want to show slide n
-    // In RTL, translateX(+100%) moves right, so to reveal slide n we go negative
     track.style.transform = `translateX(${cur * 100}%)`;
 
     document.querySelectorAll('.testi-dot').forEach((d, i) => {
@@ -176,7 +215,6 @@ document.querySelectorAll('[data-t]').forEach(el => _cObs.observe(el));
       d.setAttribute('aria-selected', String(i === cur));
     });
 
-    // Animate KPI counter in new slide
     const slide = $('ts-' + cur);
     if (slide) {
       const kpi = slide.querySelector('[data-t]');
@@ -195,7 +233,7 @@ document.querySelectorAll('[data-t]').forEach(el => _cObs.observe(el));
     if (!f) return;
     f.style.transition = 'none';
     f.style.width = '0%';
-    void f.offsetWidth; // force reflow
+    void f.offsetWidth;
   }
 
   function startTicker() {
@@ -211,12 +249,11 @@ document.querySelectorAll('[data-t]').forEach(el => _cObs.observe(el));
   if (tnext) tnext.addEventListener('click', () => go(cur + 1));
   if (tprev) tprev.addEventListener('click', () => go(cur - 1));
 
-  // Touch swipe — RTL aware
+  // Touch swipe
   let tx0 = 0;
   track.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', e => {
     const d = tx0 - e.changedTouches[0].clientX;
-    // In RTL layout, swipe left (positive d) → go to previous
     if (Math.abs(d) > 50) go(d > 0 ? cur + 1 : cur - 1);
   }, { passive: true });
 
@@ -231,16 +268,16 @@ document.querySelectorAll('[data-t]').forEach(el => _cObs.observe(el));
     wrap.addEventListener('mouseleave', () => { resetTicker(); startTicker(); });
   }
 
-  // Init first slide KPI
   const k0 = $('ts-0')?.querySelector('[data-t]');
   if (k0) setTimeout(() => animCount(k0), 600);
 
   startTicker();
 })();
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Keyboard Accessibility on Cards ──────────────────────────
+/* ══════════════════════════════════════
+   KEYBOARD ACCESSIBILITY
+══════════════════════════════════════ */
 document.querySelectorAll('[tabindex="0"]').forEach(el => {
   el.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -249,10 +286,14 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
     }
   });
 });
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Animated Background Canvas ────────────────────────────────
+/* ══════════════════════════════════════
+   CANVAS PARTICLE SYSTEM
+   Dark mode: vivid emerald particles, higher opacity
+   Light mode: subtle dark-green nodes, low opacity
+   Performance: every-other-frame connections
+══════════════════════════════════════ */
 (function () {
   const cv = $('bg-canvas');
   if (!cv) return;
@@ -260,15 +301,25 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
   const ctx = cv.getContext('2d');
   let W, H, nodes = [], frame = 0;
 
-  // Premium palette: light uses warm forest tones, dark uses luminous green
+  // Theme-aware palettes
   const PALETTES = {
-    light: { node: 'rgba(27,56,40,',   line: 'rgba(27,56,40,' },
-    dark:  { node: 'rgba(62,200,120,', line: 'rgba(62,200,120,' }
+    light: {
+      node: 'rgba(27,56,40,',
+      line: 'rgba(27,56,40,',
+      opacity_mult: 1.0,
+    },
+    dark: {
+      node: 'rgba(92,200,138,',
+      line: 'rgba(92,200,138,',
+      opacity_mult: 1.3,
+    },
   };
+
   let tc = PALETTES[savedTheme] || PALETTES.dark;
 
-  // Expose theme updater
-  window._updateCanvasTheme = t => { tc = PALETTES[t] || PALETTES.dark; };
+  window._updateCanvasTheme = t => {
+    tc = PALETTES[t] || PALETTES.dark;
+  };
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
 
@@ -279,12 +330,13 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
   }
 
   function initNodes() {
-    const count = Math.min(Math.floor(W * H / 24000), 55);
+    const count = Math.min(Math.floor(W * H / 26000), 52);
     nodes = Array.from({ length: count }, () => ({
       x: rnd(0, W), y: rnd(0, H),
-      vx: rnd(-0.18, 0.18), vy: rnd(-0.18, 0.18),
-      r: rnd(1.2, 2.8),
-      pulse: rnd(0, Math.PI * 2)
+      vx: rnd(-0.22, 0.22),
+      vy: rnd(-0.22, 0.22),
+      r: rnd(1.3, 2.5),
+      pulse: rnd(0, Math.PI * 2),
     }));
   }
 
@@ -292,7 +344,6 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
     frame++;
     ctx.clearRect(0, 0, W, H);
 
-    // Move nodes
     nodes.forEach(n => {
       n.x += n.vx; n.y += n.vy;
       if (n.x < 0) n.x = W; else if (n.x > W) n.x = 0;
@@ -300,25 +351,22 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
       n.pulse += 0.008;
     });
 
-    // Draw connections every other frame for performance
+    // Draw connections — every other frame for performance
     if (frame % 2 === 0) {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      const DIST = Math.min(W, H) * (isDark ? 0.19 : 0.17);
+      const DIST  = Math.min(W, H) * 0.16;
       const DIST2 = DIST * DIST;
-      const baseAlpha = isDark ? 0.07 : 0.05;
-
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           if (dx * dx + dy * dy < DIST2) {
             const d = Math.sqrt(dx * dx + dy * dy);
-            const alpha = (1 - d / DIST) * baseAlpha;
+            const alpha = (1 - d / DIST) * 0.052 * tc.opacity_mult;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.strokeStyle = tc.line + alpha + ')';
-            ctx.lineWidth = isDark ? 0.8 : 0.7;
+            ctx.lineWidth = 0.7;
             ctx.stroke();
           }
         }
@@ -326,13 +374,12 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
     }
 
     // Draw nodes
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     nodes.forEach(n => {
-      const r     = n.r + Math.sin(n.pulse) * 0.5;
-      const alpha = (isDark ? 0.13 : 0.09) + Math.sin(n.pulse) * 0.04;
+      const r     = n.r + Math.sin(n.pulse) * 0.42;
+      const alpha = (0.10 + Math.sin(n.pulse) * 0.038) * tc.opacity_mult;
       ctx.beginPath();
       ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = tc.node + alpha + ')';
+      ctx.fillStyle = tc.node + Math.min(alpha, 0.22) + ')';
       ctx.fill();
     });
 
@@ -348,22 +395,24 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
   resize();
   draw();
 })();
-// ─────────────────────────────────────────────────────────────
 
 
-// ── Contact Form ──────────────────────────────────────────────
+/* ══════════════════════════════════════
+   CONTACT FORM
+══════════════════════════════════════ */
 function submitForm(btn) {
-  // Basic validation
   const name  = document.getElementById('cf-name');
   const email = document.getElementById('cf-email');
   if (!name?.value.trim() || !email?.value.trim()) {
-    btn.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],
-      {duration:300,easing:'ease'});
+    btn.animate(
+      [{ transform:'translateX(0)' }, { transform:'translateX(-6px)' },
+       { transform:'translateX(6px)' }, { transform:'translateX(0)' }],
+      { duration: 300, easing: 'ease' }
+    );
     return;
   }
-  btn.innerHTML   = 'تم الإرسال ✓';
-  btn.disabled    = true;
-  btn.style.background = 'var(--green2)';
+  btn.innerHTML = 'تم الإرسال ✓';
+  btn.disabled  = true;
+  btn.style.background = 'var(--green3)';
   btn.style.cursor     = 'default';
 }
-// ─────────────────────────────────────────────────────────────
