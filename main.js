@@ -52,7 +52,8 @@ document.addEventListener('keydown', e => {
 
 
 // ── Dark Mode ────────────────────────────────────────────────
-const savedTheme = localStorage.getItem('layan-theme') || 'light';
+// Dark mode is the DEFAULT premium experience on first load.
+const savedTheme = localStorage.getItem('layan-theme') || 'dark';
 applyTheme(savedTheme);
 
 function applyTheme(t) {
@@ -63,7 +64,22 @@ function applyTheme(t) {
 
 function toggleTheme() {
   const curr = document.documentElement.getAttribute('data-theme');
-  applyTheme(curr === 'dark' ? 'light' : 'dark');
+  const next = curr === 'dark' ? 'light' : 'dark';
+
+  // Smooth cross-fade transition
+  document.documentElement.classList.add('theme-transitioning');
+  applyTheme(next);
+
+  // Create a ripple from the button
+  const btn = document.getElementById('theme-btn');
+  if (btn) {
+    btn.style.setProperty('--ripple', '1');
+    setTimeout(() => btn.style.removeProperty('--ripple'), 500);
+  }
+
+  setTimeout(() => {
+    document.documentElement.classList.remove('theme-transitioning');
+  }, 600);
 }
 // ─────────────────────────────────────────────────────────────
 
@@ -244,14 +260,15 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
   const ctx = cv.getContext('2d');
   let W, H, nodes = [], frame = 0;
 
+  // Premium palette: light uses warm forest tones, dark uses luminous green
   const PALETTES = {
     light: { node: 'rgba(27,56,40,',   line: 'rgba(27,56,40,' },
-    dark:  { node: 'rgba(94,203,136,', line: 'rgba(94,203,136,' }
+    dark:  { node: 'rgba(62,200,120,', line: 'rgba(62,200,120,' }
   };
-  let tc = PALETTES[savedTheme] || PALETTES.light;
+  let tc = PALETTES[savedTheme] || PALETTES.dark;
 
   // Expose theme updater
-  window._updateCanvasTheme = t => { tc = PALETTES[t] || PALETTES.light; };
+  window._updateCanvasTheme = t => { tc = PALETTES[t] || PALETTES.dark; };
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
 
@@ -262,11 +279,11 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
   }
 
   function initNodes() {
-    const count = Math.min(Math.floor(W * H / 28000), 48);
+    const count = Math.min(Math.floor(W * H / 24000), 55);
     nodes = Array.from({ length: count }, () => ({
       x: rnd(0, W), y: rnd(0, H),
-      vx: rnd(-0.2, 0.2), vy: rnd(-0.2, 0.2),
-      r: rnd(1.4, 2.6),
+      vx: rnd(-0.18, 0.18), vy: rnd(-0.18, 0.18),
+      r: rnd(1.2, 2.8),
       pulse: rnd(0, Math.PI * 2)
     }));
   }
@@ -280,25 +297,28 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
       n.x += n.vx; n.y += n.vy;
       if (n.x < 0) n.x = W; else if (n.x > W) n.x = 0;
       if (n.y < 0) n.y = H; else if (n.y > H) n.y = 0;
-      n.pulse += 0.01;
+      n.pulse += 0.008;
     });
 
     // Draw connections every other frame for performance
     if (frame % 2 === 0) {
-      const DIST = Math.min(W, H) * 0.17;
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const DIST = Math.min(W, H) * (isDark ? 0.19 : 0.17);
       const DIST2 = DIST * DIST;
+      const baseAlpha = isDark ? 0.07 : 0.05;
+
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           if (dx * dx + dy * dy < DIST2) {
             const d = Math.sqrt(dx * dx + dy * dy);
-            const alpha = (1 - d / DIST) * 0.05;
+            const alpha = (1 - d / DIST) * baseAlpha;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.strokeStyle = tc.line + alpha + ')';
-            ctx.lineWidth = 0.7;
+            ctx.lineWidth = isDark ? 0.8 : 0.7;
             ctx.stroke();
           }
         }
@@ -306,9 +326,10 @@ document.querySelectorAll('[tabindex="0"]').forEach(el => {
     }
 
     // Draw nodes
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     nodes.forEach(n => {
-      const r     = n.r + Math.sin(n.pulse) * 0.4;
-      const alpha = 0.09 + Math.sin(n.pulse) * 0.035;
+      const r     = n.r + Math.sin(n.pulse) * 0.5;
+      const alpha = (isDark ? 0.13 : 0.09) + Math.sin(n.pulse) * 0.04;
       ctx.beginPath();
       ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
       ctx.fillStyle = tc.node + alpha + ')';
