@@ -101,99 +101,113 @@
 ═══════════════════════════════════════════════════════ -->
 <div class="page on" id="page-home">
 
-  <!-- HERO -->
-  <div class="wrap">
-    <div class="hero-wrap">
+  <!-- ══ HERO — ICONIC REDESIGN ══ -->
+  <section class="hero-stage" aria-label="المقدمة الرئيسية">
 
-      <div class="hero-content">
+    <!-- ── LEFT: Typography Manifesto ── -->
+    <div class="hero-left">
 
-        <div class="hero-badge rv">
-          <span class="hero-badge-dot" aria-hidden="true"></span>
-          متاحة للمشاريع الجديدة
+      <!-- Eyebrow -->
+      <div class="hero-eyebrow" aria-hidden="true">
+        <span class="hero-eyebrow-line"></span>
+        <span class="hero-eyebrow-text">مصممة · UX &amp; UI · المملكة العربية السعودية</span>
+      </div>
+
+      <!-- H1: The Manifesto -->
+      <h1 class="hero-h" id="hero-headline">
+        <span class="h1-ghost">خمس سنوات من</span>
+        <span class="h1-verb">أُصمِّم</span>
+        <span class="h1-concept">لحظات</span>
+        <span class="h1-suffix">تُلهِم الناس</span>
+      </h1>
+
+      <!-- Divider -->
+      <div class="hero-divider" aria-hidden="true">
+        <span class="hero-divider-bar"></span>
+        <span class="hero-divider-text">UX · UI · Research · Strategy</span>
+      </div>
+
+      <!-- Body -->
+      <p class="hero-body">
+        من البحث إلى التسليم — أصمّم تجارب رقمية تُحرّك الناس وتُولّد نتائج قابلة للقياس.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-ctas">
+        <button class="cta-primary" onclick="goto('projects')" aria-label="استعرض مشاريع ليان السالم">
+          استعرض أعمالي
+          <span class="cta-arrow" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M9 6H3M6 3L3 6L6 9" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+        <button class="cta-secondary" onclick="goto('about');setTimeout(()=>{var el=document.getElementById('contact');if(el)el.scrollIntoView({behavior:'smooth'})},80)" aria-label="تواصل مع ليان للمشاريع">
+          <span>تحدث معي</span>
+        </button>
+      </div>
+
+      <!-- Trust Strip -->
+      <div class="hero-trust" aria-label="دليل اجتماعي">
+        <div class="trust-avatars" aria-hidden="true">
+          <div class="trust-av" style="background:linear-gradient(145deg,#28503F,#1B3828)">س</div>
+          <div class="trust-av" style="background:linear-gradient(145deg,#1E3A6E,#2C5080)">ر</div>
+          <div class="trust-av" style="background:linear-gradient(145deg,#5A2D82,#7B3FA8)">ن</div>
         </div>
-
-        <h1 class="hero-h rv d1">
-          <span class="line-sm">مصممة تجارب رقمية</span>
-          <span class="line-main">أُصمِّم</span>
-          <span class="acc">لحظات</span>
-          تُلهِم
-        </h1>
-
-        <div class="hero-meta rv d2">
-          <span class="hero-meta-line" aria-hidden="true"></span>
-          <span class="hero-meta-text">UX/UI Designer · المملكة العربية السعودية</span>
-        </div>
-
-        <p class="hero-p rv d3">
-          خمس سنوات من تصميم تجارب تحرّك الناس — من التفكير الاستراتيجي إلى التفصيل الدقيق. كل واجهة أصممها تولد نتائج قابلة للقياس.
-        </p>
-
-        <div class="hero-actions rv d3">
-          <button class="btn btn-primary" onclick="goto('projects')">
-            استعرض مشاريعي
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="btn btn-outline" onclick="goto('about');setTimeout(()=>{var el=document.getElementById('contact');if(el)el.scrollIntoView({behavior:'smooth'})},80)">
-            تحدث معي
-          </button>
-        </div>
-
-        <!-- Mobile only mini stats -->
-        <div class="hero-mini-stats rv d4" aria-label="ملخص الإنجازات">
-          <div class="hero-mini-stat">
-            <div class="hero-mini-stat-num">+30</div>
-            <div class="hero-mini-stat-lbl">مشروع</div>
-          </div>
-          <div class="hero-mini-stat">
-            <div class="hero-mini-stat-num">5</div>
-            <div class="hero-mini-stat-lbl">سنوات</div>
-          </div>
-          <div class="hero-mini-stat">
-            <div class="hero-mini-stat-num">98%</div>
-            <div class="hero-mini-stat-lbl">رضا العملاء</div>
-          </div>
-        </div>
-
-        <div class="hero-proof rv d4">
-          <div class="proof-avatars" aria-hidden="true">
-            <div class="proof-avatar" style="background:linear-gradient(135deg,#28503F,#1B3828)">س</div>
-            <div class="proof-avatar" style="background:linear-gradient(135deg,#1E2D5E,#2C3E7A)">ر</div>
-            <div class="proof-avatar" style="background:linear-gradient(135deg,#5A2D82,#8B4CC4)">ن</div>
-          </div>
-          <div class="proof-text">
-            <strong>+30 مشروع ناجح</strong><br>
-            عملاء في التقنية والصحة والتعليم
-          </div>
-        </div>
-
-      </div><!-- /hero-content -->
-
-      <div class="hero-vis rv d2">
-        <div class="hero-chip chip-1" aria-hidden="true">
-          <div class="hero-chip-num">+40%</div>
-          <div class="hero-chip-lbl">تحسّن<br>التحويل</div>
-        </div>
-
-        <div class="hero-img-frame">
-          <img
-            class="hero-img"
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=88&fit=crop&crop=faces"
-            alt="ليان السالم — مصممة UX/UI"
-            loading="eager"
-            width="390" height="520"
-            onerror="this.parentElement.style.background='linear-gradient(145deg,#28503F,#1B3828)'"
-          />
-          <div class="hero-img-overlay" aria-hidden="true"></div>
-        </div>
-
-        <div class="hero-chip chip-2" aria-hidden="true">
-          <div class="hero-chip-num">5★</div>
-          <div class="hero-chip-lbl">تقييم<br>العملاء</div>
+        <div class="trust-copy">
+          <strong>+30 مشروع ناجح</strong>
+          عملاء في التقنية والصحة والتعليم
         </div>
       </div>
 
-    </div>
-  </div><!-- /hero wrap -->
+    </div><!-- /hero-left -->
+
+    <!-- ── RIGHT: Visual Composition ── -->
+    <div class="hero-right" aria-hidden="true">
+
+      <!-- Outer frame with corner marks -->
+      <div class="hero-frame-outer">
+
+        <!-- Data card 1: conversion metric -->
+        <div class="hero-card hero-card-1">
+          <div class="card-icon">📈</div>
+          <div>
+            <div class="card-num" data-t="40" data-s="%">40%</div>
+            <div class="card-lbl">تحسّن التحويل</div>
+          </div>
+        </div>
+
+        <!-- Data card 2: projects -->
+        <div class="hero-card hero-card-2">
+          <div class="card-icon">✦</div>
+          <div>
+            <div class="card-num" data-t="30" data-s="+">30+</div>
+            <div class="card-lbl">مشروع منجز</div>
+          </div>
+        </div>
+
+        <!-- Photo frame -->
+        <div class="hero-frame-inner">
+          <img
+            class="hero-photo"
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=88&fit=crop&crop=faces"
+            alt="ليان السالم — مصممة UX/UI"
+            loading="eager"
+            width="340" height="453"
+            onerror="this.parentElement.style.background='linear-gradient(145deg,#28503F,#1B3828)'"
+          />
+          <div class="hero-photo-overlay"></div>
+
+          <!-- Availability badge inside photo -->
+          <div class="hero-avail">
+            <span class="avail-dot"></span>
+            متاحة للمشاريع الجديدة
+          </div>
+        </div>
+
+      </div><!-- /hero-frame-outer -->
+    </div><!-- /hero-right -->
+
+  </section>
+  <!-- ══ END HERO ══ -->
 
 
   <!-- STATS ROW -->
