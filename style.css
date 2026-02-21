@@ -304,6 +304,7 @@ button { font-family: var(--fb); cursor: pointer; border: none; background: none
   box-shadow: 0 4px 20px var(--grn-gl), var(--gl-g);
   transition: background 0.36s var(--ease), box-shadow 0.36s, translate 0.36s var(--ease) !important;
   clip-path: inset(0 0 0 0 round 100px);
+  padding-bottom: 9px !important;
 }
 .nav-cta::before {
   content: ''; position: absolute; inset: 0;
